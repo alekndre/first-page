@@ -45,8 +45,8 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  padding: 14px 24px;
+  gap: 16px;
+  padding: 8px 20px;
   background-color: rgba(20, 18, 16, 0.35);
   backdrop-filter: blur(14px) saturate(1.2);
   -webkit-backdrop-filter: blur(14px) saturate(1.2);
@@ -55,8 +55,8 @@ h1 {
 
 .logo {
   font-family: 'Fraunces', serif;
-  font-weight: 600;
-  font-size: 20px;
+  font-weight: 400;
+  font-size: 17px;
   color: #ffffff;
   text-decoration: none;
   white-space: nowrap;
@@ -71,8 +71,8 @@ h1 {
 .pasek-linki a {
   color: rgba(255, 255, 255, 0.75);
   text-decoration: none;
-  font-size: 14px;
-  padding: 6px 10px;
+  font-size: 12px;
+  padding: 4px 8px;
   border-radius: 8px;
   transition: color 0.2s, background-color 0.2s;
 }
@@ -164,4 +164,67 @@ h1 {
   border-color: var(--akcent);
   box-shadow: 0 6px 16px rgba(45, 42, 38, 0.10);
   transform: translateY(-2px);
+}
+
+/* ---- Responsywność paska ---- */
+/* ---- Hamburger: widoczny zawsze ---- */
+.hamburger {
+  display: block;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+/* linki chowane, gdy JS wykryje zawijanie */
+.pasek-linki.zwiniete {
+  display: none;
+}
+
+/* rozwinięte menu 3x3 — na każdej szerokości ekranu */
+.pasek-linki.otwarte {
+  display: grid;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  padding: 10px 16px 14px;
+  background-color: rgba(20, 18, 16, 0.75);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.pasek-linki.otwarte a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 4px;
+  font-size: 13px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+/* ---- Animacja wejścia hero ---- */
+@keyframes wejscie {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-tekst h1 {
+  animation: wejscie 0.9s ease-out both;
+}
+
+.hero-tekst .podtytul {
+  animation: wejscie 0.9s ease-out 0.35s both;  /* 0.35s opóźnienia — wchodzi jako drugi */
 }
