@@ -1,0 +1,150 @@
+/* ---- Zmienne: cała paleta w jednym miejscu ---- */
+:root {
+  --tlo: #f6f4f0;          /* ciepła złamana biel */
+  --karta: #ffffff;
+  --tekst: #2d2a26;        /* grafit zamiast czerni */
+  --tekst-cichy: #8a857d;  /* przygaszony szary do podpisów */
+  --akcent: #7d8b74;       /* szałwiowa zieleń */
+  --ramka: #e5e1d8;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;                     /* usuwamy stary margin i max-width */
+  background-color: var(--tlo);
+  color: var(--tekst);
+  line-height: 1.6;
+}
+
+.tresc {
+  max-width: 760px;
+  margin: 32px auto 40px;
+  padding: 0 24px;
+}
+
+h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 40px;
+  color: var(--tekst);
+  margin-bottom: 8px;
+}
+
+.hero-ramka {
+  position: relative;      /* punkt odniesienia dla tekstu na grafice */
+  margin-top: -61px;       /* wciąga grafikę pod półprzezroczysty pasek */
+}
+
+.hero {
+  display: block;
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+  margin: 0;
+}
+
+/* ciemniejąca poświata na dole grafiki, żeby biały tekst był czytelny */
+.hero-ramka::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, transparent, rgba(30, 28, 25, 0.55));
+  pointer-events: none;
+}
+
+.hero-tekst {
+  position: absolute;      /* przykleja tekst do grafiki */
+  left: 0;
+  right: 0;
+  bottom: 36px;
+  z-index: 1;              /* tekst nad gradientem */
+  max-width: 760px;
+  margin: 0 auto;          /* wyrównany do tej samej kolumny co kafelki */
+  padding: 0 24px;
+}
+
+.hero-tekst h1 {
+  color: #ffffff;
+  margin: 0 0 6px;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.3);
+}
+
+.hero-tekst .podtytul {
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.pasek {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 14px 24px;
+  background-color: rgba(20, 18, 16, 0.35);   /* ciemne, mocno przezroczyste */
+  backdrop-filter: blur(14px) saturate(1.2);  /* mocniejsze rozmycie + lekko podbite kolory pod szkłem */
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);  /* wsparcie dla Safari */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12); /* subtelna jasna krawędź "szkła" */
+}
+
+.logo {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #ffffff;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.pasek-linki a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.pasek-linki a:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* podtytuł pod h1 — dodaj w HTML: <p class="podtytul">...</p> */
+.podtytul {
+  color: var(--tekst-cichy);
+  font-size: 17px;
+  margin-top: 0;
+}
+
+.panel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 40px;
+}
+
+.kafelek {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 110px;
+  background-color: var(--karta);
+  border: 1px solid var(--ramka);
+  border-radius: 14px;
+  color: var(--tekst);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(45, 42, 38, 0.06);
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.kafelek:hover {
+  border-color: var(--akcent);
+  box-shadow: 0 6px 16px rgba(45, 42, 38, 0.10);
+  transform: translateY(-2px);
+}
