@@ -6,21 +6,33 @@
   --card-hover: #232019;
   --text: #e9e5dd;
   --text-muted: #9b958a;
-  --accent: #96a68b;
-  --border: rgba(255, 255, 255, 0.10);
+  --accent: #5a6453;
+  --border: rgb(41, 36, 36);
   --marquee-bg: rgba(20, 18, 16, 0.85);
+
+  --nav-bg: rgba(20, 18, 16, 0.8);
+  --nav-bg-solid: rgba(20, 18, 16, 0.85);   /* dropdown slicera */
+  --nav-text: #ffffff;
+  --nav-link: rgba(255, 255, 255, 0.75);
+  --nav-link-hover-bg: rgba(255, 255, 255, 0.12);
 }
 
 /* motyw jasny — Twoja pierwotna paleta */
 :root[data-theme="light"] {
-  --bg: #f5f1e8;
-  --card: #ffffff;
-  --card-hover: #fbfaf6;
+  --bg: #f3f1ec;
+  --card: #fbfaf8;
+  --card-hover: #eeebe4;
   --text: #2d2a26;
   --text-muted: #8a857d;
   --accent: #7d8b74;
-  --border: #e5e1d8;
-  --marquee-bg: #ffffff
+  --border: #e2dfd7;
+  --marquee-bg: #ffffff;
+
+  --nav-bg: rgb(245, 241, 232, 0.8);      /* jasne szkło z kremu strony */
+  --nav-bg-solid: rgba(245, 241, 232, 0.9);
+  --nav-text: #2d2a26;
+  --nav-link: rgba(45, 42, 38, 0.75);
+  --nav-link-hover-bg: rgba(45, 42, 38, 0.08);
 }
 
 /* ==== 2. Podstawy ==== */
@@ -62,17 +74,17 @@ h1 {
   justify-content: space-between;
   gap: 16px;
   padding: 8px 20px;
-  background-color: rgba(20, 18, 16, 0.6);
+  background-color: var(--nav-bg);
   backdrop-filter: blur(14px) saturate(1.2);
   -webkit-backdrop-filter: blur(14px) saturate(1.2);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 0px solid var(--border);
 }
 
 .logo {
   font-family: 'Fraunces', serif;
   font-weight: 400;
   font-size: 17px;
-  color: #ffffff;
+  color: var(--nav-text);
   text-decoration: none;
   white-space: nowrap;
 }
@@ -90,7 +102,7 @@ h1 {
 }
 
 .nav-links a {
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--nav-link);
   text-decoration: none;
   font-size: 12px;
   padding: 4px 8px;
@@ -99,8 +111,8 @@ h1 {
 }
 
 .nav-links a:hover {
-  color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--nav-text);
+  background-color: var(--nav-link-hover-bg);
 }
 
 .navbar-actions {
@@ -113,7 +125,7 @@ h1 {
   display: block;    /* widoczny zawsze */
   background: none;
   border: none;
-  color: #ffffff;
+  color: var(--nav-text);
   font-size: 22px;
   cursor: pointer;
   padding: 4px 8px;
@@ -134,7 +146,7 @@ h1 {
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
   padding: 10px 16px 14px;
-  background-color: rgba(20, 18, 16, 0.85); /* ciemniej: na ciemnej stronie 0.58 było za rzadkie */
+  background-color: var(--nav-bg-solid); /* ciemniej: na ciemnej stronie 0.58 było za rzadkie */
   backdrop-filter: blur(14px) saturate(1.2);
   -webkit-backdrop-filter: blur(14px) saturate(1.2);
   border-bottom: 1px solid var(--border);
@@ -252,7 +264,9 @@ h1 {
 .logo-marquee {
   overflow: hidden;
   padding: 10px 0;
-  background-color: var(--marquee-bg);
+  background-color: var(--nav-bg);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
   border-top: 0px solid var(--border);
 }
 
@@ -302,7 +316,7 @@ h1 {
 .theme-toggle {
   background: none;
   border: none;
-  color: #ffffff;          /* navbar jest zawsze ciemny, więc ikona zawsze biała */
+  color: var(--nav-text);          /* navbar jest zawsze ciemny, więc ikona zawsze biała */
   cursor: pointer;
   padding: 4px 8px;
   display: flex;
@@ -315,3 +329,13 @@ h1 {
 .icon-moon { display: none; }
 :root[data-theme="light"] .icon-sun  { display: none; }
 :root[data-theme="light"] .icon-moon { display: block; }
+
+/* ==== 9. Płynne przełączanie motywu ==== */
+html.theme-anim,
+html.theme-anim *,
+html.theme-anim *::before,
+html.theme-anim *::after {
+  transition: background-color 0.35s ease,
+              color 0.35s ease,
+              border-color 0.35s ease !important;
+}

@@ -39,12 +39,20 @@ function checkNavbar() {
 window.addEventListener('resize', checkNavbar);
 checkNavbar();
 
-/* ==== Podmiana logotypów wg motywu ==== */
-function syncMarqueeTheme() {
+/* ==== Podmiana grafik wg motywu ==== */
+function syncThemeAssets() {
   const theme = document.documentElement.dataset.theme || 'dark';
+
+  // loga partnerów
   document.querySelectorAll('.logo-marquee__item img').forEach(img => {
     img.src = img.src.replace(/partners-(light|dark)/, `partners-${theme}`);
   });
+
+  // logo Montech w navbarze
+  const logo = document.querySelector('.logo-img');
+  if (logo) {
+    logo.src = logo.src.replace(/logo_ms-(light|dark)/, `logo_ms-${theme}`);
+  }
 }
 
 /* ==== PASEK PARTNERZY: klonowanie logotypów do pełnej pętli ==== */
@@ -59,7 +67,7 @@ window.addEventListener('load', function () {
   const setWidth = track.scrollWidth; // szerokość jednego kompletu z gapami
   if (setWidth === 0) return;
 
-  syncMarqueeTheme(); // najpierw właściwe pliki, potem klonowanie je skopiuje
+  syncThemeAssets(); // najpierw właściwe pliki, potem klonowanie je skopiuje
 
   // ile kompletów potrzeba, żeby połowa tracku pokryła całe okno
   const perHalf = Math.max(1, Math.ceil(window.innerWidth / setWidth));
@@ -74,20 +82,37 @@ window.addEventListener('load', function () {
     });
   }
 
-  console.log(`logo-marquee: ${totalCopies} kompletów, track = ${track.scrollWidth}px`);
+ console.log(`logo-marquee: ${totalCopies} kompletów`);
 
-  // stała prędkość niezależna od szerokości okna i liczby klonów
+  // stała prędkość: licz dopiero, gdy WSZYSTKIE obrazki w tracku mają wymiary
   const SPEED = 35; // px na sekundę — pokrętło prędkości
-  const duration = (track.scrollWidth / 2) / SPEED;
-  track.style.animationDuration = duration + 's';
+  const imgs = [...track.querySelectorAll('img')];
+
+  Promise.all(
+    imgs.map(img => img.complete
+      ? Promise.resolve()
+      : new Promise(resolve => { img.onload = resolve; img.onerror = resolve; })
+    )
+  ).then(() => {
+    const duration = (track.scrollWidth / 2) / SPEED;
+    track.style.animationDuration = duration + 's';
+    console.log(`logo-marquee: prędkość ustawiona, track = ${track.scrollWidth}px`);
+  });
 });
 
 /* ==== Przełącznik motywu ==== */
 const themeToggle = document.querySelector('.theme-toggle');
+let themeAnimTimer;
 
 themeToggle.addEventListener('click', () => {
-  const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
-  document.documentElement.dataset.theme = next;
+  const root = document.documentElement;
+
+  root.classList.add('theme-anim');
+  clearTimeout(themeAnimTimer);
+  themeAnimTimer = setTimeout(() => root.classList.remove('theme-anim'), 400);
+
+  const next = root.dataset.theme === 'light' ? 'dark' : 'light';
+  root.dataset.theme = next;
   localStorage.setItem('theme', next);
-  syncMarqueeTheme();
+  syncThemeAssets();
 });
