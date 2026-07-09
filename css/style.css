@@ -8,6 +8,7 @@
   --text-muted: #9b958a;
   --accent: #96a68b;
   --border: rgba(255, 255, 255, 0.10);
+  --marquee-bg: rgba(20, 18, 16, 0.85);
 }
 
 /* motyw jasny — Twoja pierwotna paleta */
@@ -19,6 +20,7 @@
   --text-muted: #8a857d;
   --accent: #7d8b74;
   --border: #e5e1d8;
+  --marquee-bg: #ffffff
 }
 
 /* ==== 2. Podstawy ==== */
@@ -99,6 +101,12 @@ h1 {
 .nav-links a:hover {
   color: #ffffff;
   background-color: rgba(255, 255, 255, 0.12);
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
 }
 
 .hamburger {
@@ -244,7 +252,7 @@ h1 {
 .logo-marquee {
   overflow: hidden;
   padding: 10px 0;
-  background-color: rgba(0, 0, 0, 0.651);  /* rodzina navbara, mniej przezroczyste */
+  background-color: var(--marquee-bg);
   border-top: 0px solid var(--border);
 }
 

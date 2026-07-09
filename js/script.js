@@ -39,6 +39,14 @@ function checkNavbar() {
 window.addEventListener('resize', checkNavbar);
 checkNavbar();
 
+/* ==== Podmiana logotypów wg motywu ==== */
+function syncMarqueeTheme() {
+  const theme = document.documentElement.dataset.theme || 'dark';
+  document.querySelectorAll('.logo-marquee__item img').forEach(img => {
+    img.src = img.src.replace(/partners-(light|dark)/, `partners-${theme}`);
+  });
+}
+
 /* ==== PASEK PARTNERZY: klonowanie logotypów do pełnej pętli ==== */
 window.addEventListener('load', function () {
   const track = document.querySelector('.logo-marquee__track');
@@ -50,6 +58,8 @@ window.addEventListener('load', function () {
   const originals = [...track.children];
   const setWidth = track.scrollWidth; // szerokość jednego kompletu z gapami
   if (setWidth === 0) return;
+
+  syncMarqueeTheme(); // najpierw właściwe pliki, potem klonowanie je skopiuje
 
   // ile kompletów potrzeba, żeby połowa tracku pokryła całe okno
   const perHalf = Math.max(1, Math.ceil(window.innerWidth / setWidth));
@@ -66,12 +76,11 @@ window.addEventListener('load', function () {
 
   console.log(`logo-marquee: ${totalCopies} kompletów, track = ${track.scrollWidth}px`);
 
-    // stała prędkość niezależna od szerokości okna i liczby klonów
+  // stała prędkość niezależna od szerokości okna i liczby klonów
   const SPEED = 35; // px na sekundę — pokrętło prędkości
   const duration = (track.scrollWidth / 2) / SPEED;
   track.style.animationDuration = duration + 's';
 });
-
 
 /* ==== Przełącznik motywu ==== */
 const themeToggle = document.querySelector('.theme-toggle');
@@ -80,4 +89,5 @@ themeToggle.addEventListener('click', () => {
   const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
   document.documentElement.dataset.theme = next;
   localStorage.setItem('theme', next);
+  syncMarqueeTheme();
 });
