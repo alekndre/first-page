@@ -1,11 +1,11 @@
 // ---- Pokaz slajdów ----
-const slides = document.querySelectorAll('.hero-slides');
+const slides = document.querySelectorAll('.hero-slide');
 let current = 0;
 
 setInterval(() => {
-  slides[current].classList.remove('current');
+  slides[current].classList.remove('active');
   current = (current + 1) % slides.length;
-  slides[current].classList.add('current');
+  slides[current].classList.add('active');
 }, 5000);
 
 // ---- Menu hamburgerowe ----
@@ -28,9 +28,9 @@ window.addEventListener('scroll', () => {
 function checkNavbar() {
   menu.classList.remove('open');
   menu.classList.remove('collapsed');
-  const link = menu.querySelectorAll('a');
-  const first = link[0].offsetTop;
-  const last = link[link.length - 1].offsetTop;
+  const links = menu.querySelectorAll('a');
+  const first = links[0].offsetTop;
+  const last = links[links.length - 1].offsetTop;
   if (last > first) {
     menu.classList.add('collapsed');
   }
