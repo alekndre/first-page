@@ -64,10 +64,20 @@ window.addEventListener('load', function () {
     });
   }
 
-  // stała prędkość niezależna od szerokości okna i liczby klonów
+  console.log(`logo-marquee: ${totalCopies} kompletów, track = ${track.scrollWidth}px`);
+
+    // stała prędkość niezależna od szerokości okna i liczby klonów
   const SPEED = 35; // px na sekundę — pokrętło prędkości
   const duration = (track.scrollWidth / 2) / SPEED;
   track.style.animationDuration = duration + 's';
-  
-  console.log(`logo-marquee: ${totalCopies} kompletów, track = ${track.scrollWidth}px`);
+});
+
+
+/* ==== Przełącznik motywu ==== */
+const themeToggle = document.querySelector('.theme-toggle');
+
+themeToggle.addEventListener('click', () => {
+  const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem('theme', next);
 });

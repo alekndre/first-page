@@ -1,10 +1,23 @@
 /* ==== 1. Zmienne: cała paleta w jednym miejscu ==== */
+/* motyw ciemny = domyślny */
 :root {
-  --bg: #dad5bc91;         /* półprzezroczysty ciepły beż */
+  --bg: #14120f;
+  --card: #1e1b17;
+  --card-hover: #232019;
+  --text: #e9e5dd;
+  --text-muted: #9b958a;
+  --accent: #96a68b;
+  --border: rgba(255, 255, 255, 0.10);
+}
+
+/* motyw jasny — Twoja pierwotna paleta */
+:root[data-theme="light"] {
+  --bg: #f5f1e8;
   --card: #ffffff;
-  --text: #2d2a26;         /* grafit zamiast czerni */
-  --text-muted: #8a857d;   /* przygaszony szary do podpisów */
-  --accent: #7d8b74;       /* szałwiowa zieleń */
+  --card-hover: #fbfaf6;
+  --text: #2d2a26;
+  --text-muted: #8a857d;
+  --accent: #7d8b74;
   --border: #e5e1d8;
 }
 
@@ -50,7 +63,7 @@ h1 {
   background-color: rgba(20, 18, 16, 0.6);
   backdrop-filter: blur(14px) saturate(1.2);
   -webkit-backdrop-filter: blur(14px) saturate(1.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid var(--border);
 }
 
 .logo {
@@ -113,10 +126,10 @@ h1 {
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
   padding: 10px 16px 14px;
-  background-color: rgba(20, 18, 16, 0.582);
+  background-color: rgba(20, 18, 16, 0.85); /* ciemniej: na ciemnej stronie 0.58 było za rzadkie */
   backdrop-filter: blur(14px) saturate(1.2);
   -webkit-backdrop-filter: blur(14px) saturate(1.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid var(--border);
 }
 
 .nav-links.open a {
@@ -151,13 +164,13 @@ h1 {
   opacity: 1;
 }
 
-/* ciemniejąca poświata na dole, żeby biały tekst był czytelny */
+/* ciemniejąca poświata na dole — teraz przechodzi w kolor tła strony */
 .hero::after {
   content: "";
   position: absolute;
   left: 0; right: 0; bottom: 0;
   height: 50%;
-  background: linear-gradient(to bottom, transparent, rgba(30, 28, 25, 0.55));
+  background: linear-gradient(to bottom, transparent, rgba(20, 18, 15, 0.75));
   pointer-events: none;
 }
 
@@ -205,13 +218,13 @@ h1 {
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
-  box-shadow: 0 1px 3px rgba(45, 42, 38, 0.06);
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  /* cień zdjęty: na ciemnym tle nie robi roboty, granicę trzyma border */
+  transition: border-color 0.2s, background-color 0.2s, transform 0.2s;
 }
 
 .tile:hover {
   border-color: var(--accent);
-  box-shadow: 0 6px 16px rgba(45, 42, 38, 0.10);
+  background-color: var(--card-hover);   /* delikatne rozświetlenie zamiast cienia */
   transform: translateY(-2px);
 }
 
@@ -230,8 +243,9 @@ h1 {
 /* ==== 7. PASEK PARTNERZY ==== */
 .logo-marquee {
   overflow: hidden;
-  padding: 10px 0;                /* węższy pasek */
-  background: #ffffff;
+  padding: 10px 0;
+  background-color: rgba(0, 0, 0, 0.651);  /* rodzina navbara, mniej przezroczyste */
+  border-top: 0px solid var(--border);
 }
 
 .logo-marquee__track {
@@ -250,7 +264,7 @@ h1 {
   height: 30px;
   width: auto;
   display: block;
-  filter: grayscale(0) opacity(0.7);
+  filter: opacity(0.6);            /* 0.65 za mocno gasiło jasne loga na ciemnym */
   transition: filter 0.3s ease;
 }
 
@@ -275,3 +289,21 @@ h1 {
     width: auto;
   }
 }
+
+/* ==== 8. ZMIANA MOTYWU ==== */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: #ffffff;          /* navbar jest zawsze ciemny, więc ikona zawsze biała */
+  cursor: pointer;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle svg { width: 18px; height: 18px; }
+
+/* pokazujemy ikonę motywu, KTÓRY DOSTANIESZ po kliknięciu */
+.icon-moon { display: none; }
+:root[data-theme="light"] .icon-sun  { display: none; }
+:root[data-theme="light"] .icon-moon { display: block; }
