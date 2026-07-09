@@ -38,3 +38,36 @@ function checkNavbar() {
 
 window.addEventListener('resize', checkNavbar);
 checkNavbar();
+
+/* ==== PASEK PARTNERZY: klonowanie logotypów do pełnej pętli ==== */
+window.addEventListener('load', function () {
+  const track = document.querySelector('.logo-marquee__track');
+  if (!track) {
+    console.warn('logo-marquee: nie znaleziono .logo-marquee__track');
+    return;
+  }
+
+  const originals = [...track.children];
+  const setWidth = track.scrollWidth; // szerokość jednego kompletu z gapami
+  if (setWidth === 0) return;
+
+  // ile kompletów potrzeba, żeby połowa tracku pokryła całe okno
+  const perHalf = Math.max(1, Math.ceil(window.innerWidth / setWidth));
+  const totalCopies = perHalf * 2; // parzysta liczba => -50% trafia w szew
+
+  for (let c = 1; c < totalCopies; c++) {
+    originals.forEach(el => {
+      const clone = el.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.querySelectorAll('img').forEach(i => i.setAttribute('alt', ''));
+      track.appendChild(clone);
+    });
+  }
+
+  // stała prędkość niezależna od szerokości okna i liczby klonów
+  const SPEED = 35; // px na sekundę — pokrętło prędkości
+  const duration = (track.scrollWidth / 2) / SPEED;
+  track.style.animationDuration = duration + 's';
+  
+  console.log(`logo-marquee: ${totalCopies} kompletów, track = ${track.scrollWidth}px`);
+});

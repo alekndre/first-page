@@ -10,7 +10,7 @@
 
 /* ==== 2. Podstawy ==== */
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   margin: 0;
   background-color: var(--bg);
   color: var(--text);
@@ -18,7 +18,7 @@ body {
 }
 
 h1 {
-  font-family: 'Fraunces', serif;
+  font-family: 'Stardos Stencil', serif;
   font-weight: 600;
   font-size: 40px;
   color: var(--text);
@@ -224,5 +224,54 @@ h1 {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* ==== 7. PASEK PARTNERZY ==== */
+.logo-marquee {
+  overflow: hidden;
+  padding: 10px 0;                /* węższy pasek */
+  background: #ffffff;
+}
+
+.logo-marquee__track {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  width: max-content;
+  animation: marquee-scroll 85s linear infinite;
+}
+
+.logo-marquee__item {
+  flex-shrink: 0;
+}
+
+.logo-marquee__item img {
+  height: 30px;
+  width: auto;
+  display: block;
+  filter: grayscale(0) opacity(0.7);
+  transition: filter 0.3s ease;
+}
+
+.logo-marquee__item img:hover {
+  filter: grayscale(0) opacity(1);
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.logo-marquee:hover .logo-marquee__track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee__track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
   }
 }
