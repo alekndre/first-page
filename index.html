@@ -55,9 +55,11 @@
     </header>
 
   <div class="hero">
-    <img src="img/p_ms1.jpg" alt="Opis 1" class="hero-slide active">
-    <img src="img/p_ms2.jpg" alt="Opis 2" class="hero-slide">
-    <img src="img/p_ms3.jpg" alt="Opis 3" class="hero-slide">
+    <img src="img/ship1.jpg" alt="Opis 3" class="hero-slide active">
+    <img src="img/ship2.jpg" alt="Opis 2" class="hero-slide">
+    <img src="img/ship3.jpg" alt="Opis 1" class="hero-slide">
+    <img src="img/ship4.jpg" alt="Opis 2" class="hero-slide">
+    <img src="img/ship5.jpg" alt="Opis 3" class="hero-slide">
 
     <div class="hero-text">
       <h1>Montech Serwis</h1>
@@ -65,16 +67,84 @@
     </div>
   </div>
 
-    <div class="content">
-      <nav class="panel">
-        <a href="o-nas.html" class="tile" data-i18n="nav_about">O firmie</a>
-        <a href="uslugi.html" class="tile" data-i18n="nav_services">Usługi</a>
-        <a href="projekty.html" class="tile" data-i18n="nav_projects">Projekty</a>
-        <a href="certyfikaty.html" class="tile" data-i18n="nav_certificate">Certyfikaty</a>
-        <a href="geleria.html" class="tile" data-i18n="nav_galery">Galeria</a>
-        <a href="kontakt.html" class="tile" data-i18n="nav_contact">Kontakt</a>
-      </nav>
+<main class="zones">
+
+  <!-- 01 O firmie -->
+  <section class="zone" id="zone-about">
+    <span class="zone-ghost" aria-hidden="true">01</span>
+    <div class="zone-grid">
+      <div class="zone-panel deck">
+        <!-- <img src="img/sweden202205/s14.jfif" alt="" class="deck-card"> -->
+        <img src="img/mapress/m5.jfif" alt="" class="deck-card">
+        <img src="img/mapress/m7.jfif" alt="" class="deck-card">
+        <!-- <img src="img/mapress/m5.jfif" alt="" class="deck-card"> -->
+        <img src="img/sweden202205/s14.jfif" alt="" class="deck-card">
+      </div>
+      <div class="zone-text">
+        <p class="zone-kicker" data-i18n="about_kicker">Poznaj nas</p>
+        <h2 class="zone-title" data-i18n="nav_about">O firmie</h2>
+        <p class="zone-desc" data-i18n="about_desc">Montaż i serwis instalacji okrętowych. Doświadczenie zdobyte w stoczniach w całej Europie.</p>
+        <a href="o-nas.html" class="zone-cta"><span data-i18n="cta_more">Więcej</span> <span class="zone-arrow">→</span></a>
+      </div>
     </div>
+  </section>
+
+  <!-- 02 Usługi -->
+  <section class="zone zone-alt" id="zone-services">
+    <span class="zone-ghost" aria-hidden="true">02</span>
+    <div class="zone-grid">
+      <div class="zone-text">
+        <p class="zone-kicker" data-i18n="services_kicker">Zakres prac</p>
+        <h2 class="zone-title" data-i18n="nav_services">Usługi</h2>
+        <div class="svc-list">
+          <a href="uslugi.html" class="svc" data-img="0" data-i18n="svc_pipes">Rurociągi</a>
+          <a href="uslugi.html" class="svc" data-img="1" data-i18n="svc_fire">Systemy przeciwpożarowe</a>
+          <a href="uslugi.html" class="svc" data-img="2" data-i18n="svc_sanitary">Instalacje sanitarne</a>
+          <a href="uslugi.html" class="svc" data-img="3" data-i18n="svc_service">Serwis</a>
+        </div>
+      </div>
+      <div class="zone-panel svc-preview">
+        <!-- <img src="img/ostroda2023/o10.jfif" alt="" class="svc-img active"> -->
+        <img src="img/pipelines2022/p5.jfif" alt="" class="svc-img active">
+        <img src="img/sweden202205/s16.jfif" alt="" class="svc-img">
+        <img src="img/ostroda2023/o10.jfif" alt="" class="svc-img">
+        <img src="img/marella202201/2m6.jfif" alt="" class="svc-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 Projekty -->
+  <section class="zone" id="zone-projects">
+    <span class="zone-ghost" aria-hidden="true">03</span>
+    <div class="zone-grid">
+      <div class="zone-panel slider">
+        <img src="img/marella202201/2m4.jfif" alt="" class="slide active">
+        <img src="img/mapress/m10.jfif" alt="" class="slide">
+        <img src="img/marella202201/2m9.jfif" alt="" class="slide">
+        <div class="slider-ui">
+          <button class="slider-btn" data-dir="-1" aria-label="Poprzedni">←</button>
+          <span class="slider-count">1 / 3</span>
+          <button class="slider-btn" data-dir="1" aria-label="Następny">→</button>
+        </div>
+      </div>
+      <div class="zone-text">
+        <p class="zone-kicker" data-i18n="projects_kicker">Realizacje</p>
+        <h2 class="zone-title" data-i18n="nav_projects">Projekty</h2>
+        <p class="zone-desc" data-i18n="projects_desc">Wybrane realizacje z ostatnich lat — od remontów po instalacje na nowych jednostkach.</p>
+        <a href="projekty.html" class="zone-cta"><span data-i18n="cta_more">Więcej</span> <span class="zone-arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- pasek CTA -->
+  <section class="cta-strip">
+    <p class="cta-text" data-i18n="cta_strip">Porozmawiajmy o Twoim projekcie</p>
+    <a href="kontakt.html" class="cta-btn" data-i18n="nav_contact">Kontakt</a>
+  </section>
+
+</main>
+
+
     <script src="js/script.js"></script>
 
   <section class="logo-marquee" aria-label="Montech Partners">

@@ -127,6 +127,17 @@ const translations = {
     nav_certificate: "Certyfikaty",
     nav_galery: "Galeria",
     hero_subtitle: "Montaż i serwis instalacji",
+    about_kicker: "Poznaj nas",
+    about_desc: "Montaż i serwis instalacji okrętowych. Doświadczenie zdobyte w stoczniach w całej Europie.",
+    services_kicker: "Zakres prac",
+    svc_pipes: "Rurociągi",
+    svc_fire: "Systemy przeciwpożarowe",
+    svc_sanitary: "Instalacje sanitarne",
+    svc_service: "Serwis",
+    projects_kicker: "Realizacje",
+    projects_desc: "Wybrane realizacje z ostatnich lat — od remontów po instalacje na nowych jednostkach.",
+    cta_more: "Więcej",
+    cta_strip: "Porozmawiajmy o Twoim projekcie",
   },
   en: {
     nav_about: "About us",
@@ -136,6 +147,17 @@ const translations = {
     nav_certificate: "Certificates",
     nav_galery: "Galery",
     hero_subtitle: "Installation and maintenance services",
+    about_kicker: "About",
+    about_desc: "Installation and maintenance of marine systems. Experience gained in shipyards across Europe.",
+    services_kicker: "What we do",
+    svc_pipes: "Piping systems",
+    svc_fire: "Fire protection systems",
+    svc_sanitary: "Sanitary installations",
+    svc_service: "Maintenance",
+    projects_kicker: "Selected work",
+    projects_desc: "Selected projects from recent years — from refits to installations on new vessels.",
+    cta_more: "More",
+    cta_strip: "Let's talk about your project",
   },
 };
 
@@ -169,3 +191,45 @@ const savedLang = localStorage.getItem("lang") || "pl";
 if (savedLang !== "pl") {
   setLanguage(savedLang);
 }
+
+/* ==== Strefy: wejście przy scrollu ==== */
+const zones = document.querySelectorAll('.zone');
+
+const zoneObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      zoneObserver.unobserve(entry.target); // animacja tylko raz
+    }
+  });
+}, { threshold: 0.25 }); // odpala, gdy 1/4 strefy jest widoczna
+
+zones.forEach(z => zoneObserver.observe(z));
+
+/* ==== Strefa 02: lista usług steruje podglądem ==== */
+const svcLinks = document.querySelectorAll('.svc');
+const svcImgs = document.querySelectorAll('.svc-img');
+
+svcLinks.forEach(link => {
+  link.addEventListener('mouseenter', () => {
+    svcImgs.forEach(img => img.classList.remove('active'));
+    svcImgs[Number(link.dataset.img)].classList.add('active');
+    svcLinks.forEach(l => l.classList.remove('hot'));
+    link.classList.add('hot');
+  });
+});
+
+/* ==== Strefa 03: mini-slider projektów ==== */
+const projSlides = document.querySelectorAll('.slider .slide');
+const projCount = document.querySelector('.slider-count');
+let projIndex = 0;
+
+document.querySelectorAll('.slider-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    projSlides[projIndex].classList.remove('active');
+    projIndex = (projIndex + Number(btn.dataset.dir) + projSlides.length) % projSlides.length;
+    projSlides[projIndex].classList.add('active');
+    projCount.textContent = `${projIndex + 1} / ${projSlides.length}`;
+  });
+});

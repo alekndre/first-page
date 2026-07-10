@@ -58,11 +58,7 @@ h1 {
   margin-top: 0;
 }
 
-.content {
-  max-width: 760px;
-  margin: 32px auto 40px;
-  padding: 0 24px;
-}
+
 
 /* ==== 3. Navbar (ciemne szkło) ==== */
 .navbar {
@@ -216,9 +212,10 @@ h1 {
 
 /* ==== 4. Hero: pokaz slajdów ==== */
 .hero {
-  position: relative;      /* punkt odniesienia dla slajdów i tekstu */
-  height: 60vh;            /* wysokość trzyma ramka, bo slajdy są position:absolute */
-  margin-top: -61px;       /* wciąga hero pod półprzezroczysty pasek */
+  position: relative;
+  height: 90vh;            /* było 60vh — o połowę więcej */
+  margin-top: -61px;
+  /*margin-bottom: -30vh;    /* wciąga treść z powrotem na zdjęcie */
   overflow: hidden;
 }
 
@@ -250,8 +247,8 @@ h1 {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 36px;
-  z-index: 1;              /* tekst nad slajdami i gradientem */
+  bottom: 48px;
+  z-index: 1;
   max-width: 760px;
   margin: 0 auto;
   padding: 0 24px;
@@ -270,34 +267,295 @@ h1 {
   animation: fade-in 0.9s ease-out 0.35s both;  /* wchodzi jako drugi */
 }
 
-/* ==== 5. Panel kafelków ==== */
-.panel {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin-top: 40px;
+
+/* ==== 5. Strefy nawigacyjne ==== */
+.zones {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 24px 0;
 }
 
-.tile {
+.zone {
+  position: relative;
+  min-height: 50vh; /* wysokosc stref */
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 110px;
-  background-color: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
+  overflow: hidden;
+  padding: 28px 0;
+}
+
+.zone-ghost {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);   /* środek strefy, uniesiony ku linii nagłówka */
+  right: 0;
+  font-family: 'Stardos Stencil', serif;
+  font-size: clamp(120px, 18vw, 220px);
+  line-height: 1;
+  color: var(--text);
+  opacity: 0.05;
+  pointer-events: none;
+  user-select: none;
+}
+
+.zone-alt .zone-ghost {
+  right: auto;
+  left: 0;
+}
+
+.zone-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.zone-kicker {
+  color: var(--text-muted);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+}
+
+.zone-title {
+  font-family: 'Stardos Stencil', serif;
+  font-size: 36px;
+  margin: 0 0 12px;
+}
+
+.zone-desc {
+  color: var(--text-muted);
+  max-width: 40ch;
+  margin: 0 0 18px;
+}
+
+.zone-cta {
   color: var(--text);
   text-decoration: none;
   font-size: 16px;
-  font-weight: 500;
-  /* cień zdjęty: na ciemnym tle nie robi roboty, granicę trzyma border */
-  transition: border-color 0.2s, background-color 0.2s, transform 0.2s;
 }
 
-.tile:hover {
-  border-color: var(--accent);
-  background-color: var(--card-hover);   /* delikatne rozświetlenie zamiast cienia */
+.zone-arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.zone-cta:hover .zone-arrow {
+  transform: translateX(8px);
+}
+
+/* -- wejście przy scrollu -- */
+.zone-text,
+.zone-panel {
+  opacity: 0;
+  transition: opacity 0.7s ease, transform 0.8s cubic-bezier(0.22, 0.9, 0.3, 1),
+              clip-path 0.9s cubic-bezier(0.22, 0.9, 0.3, 1);
+}
+
+.zone-text { transform: translateX(40px); }
+/* .zone-alt .zone-text { transform: translateX(-40px); } */
+.zone-alt .zone-text {
+  text-align: right;
+}
+
+/* lista usług: linie podkreśleń zostają pełne, ale tekst idzie do prawej */
+.zone-alt .svc {
+  text-align: right;
+}
+
+.zone-alt .svc:hover,
+.zone-alt .svc.hot {
+  padding-left: 0;
+  padding-right: 12px;   /* hover przesuwa w lustrze, w lewo od krawędzi */
+}
+.zone-panel { clip-path: inset(0 100% 0 0); }
+.zone-alt .zone-panel { clip-path: inset(0 0 0 100%); }
+
+.zone.visible .zone-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.zone.visible .zone-panel {
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+}
+
+/* -- panel 01: talia zdjęć -- */
+.deck {
+  position: relative;
+  height: 320px;           /* było 340px */
+  padding: 18px 0;         /* zapas na rogi obróconych kart */
+  box-sizing: border-box;
+}
+
+.deck-card {
+  position: absolute;
+  inset: 18px 0;           /* respektuje zapas z góry i dołu */
+  margin: auto;
+  width: 60%;
+  height: 82%;             /* było 90% — rogi po rotacji mieszczą się w kontenerze */
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  transition: transform 0.45s cubic-bezier(0.22, 0.9, 0.3, 1);
+}
+
+.deck-card:nth-child(1) { transform: rotate(-7deg) translateX(-26px); }
+.deck-card:nth-child(2) { transform: rotate(4deg); }
+.deck-card:nth-child(3) { transform: rotate(-2deg) translateX(26px); }
+
+.deck:hover .deck-card:nth-child(1) { transform: rotate(-10deg) translateX(-70px); }
+.deck:hover .deck-card:nth-child(2) { transform: rotate(2deg); }
+.deck:hover .deck-card:nth-child(3) { transform: rotate(9deg) translateX(70px); }
+
+/* -- panel 02: lista usług + podgląd -- */
+.svc-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.svc {
+  padding: 12px 0;
+  color: var(--text-muted);
+  font-size: 18px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.25s ease, padding-left 0.3s ease;
+}
+
+.svc:hover,
+.svc.hot {
+  color: var(--text);
+  padding-left: 12px;
+}
+
+.svc-preview {
+  position: relative;
+  height: 340px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.svc-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.svc-img.active { opacity: 1; }
+
+/* -- panel 03: mini-slider -- */
+.slider {
+  position: relative;
+  height: 340px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.slide.active { opacity: 1; }
+
+.slider-ui {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1;
+}
+
+.slider-btn {
+  background: rgba(10, 9, 7, 0.55);
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background 0.25s ease;
+}
+
+.slider-btn:hover { background: rgba(10, 9, 7, 0.8); }
+
+.slider-count {
+  color: #fff;
+  font-size: 13px;
+  background: rgba(10, 9, 7, 0.55);
+  padding: 8px 12px;
+  border-radius: 8px;
+  backdrop-filter: blur(6px);
+}
+
+/* -- pasek CTA -- */
+.cta-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 20px 0 56px;
+  padding: 28px 32px;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.cta-text {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.cta-btn {
+  color: var(--bg);
+  background-color: var(--text);
+  text-decoration: none;
+  padding: 10px 22px;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.cta-btn:hover {
   transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* -- mobile -- */
+@media (max-width: 760px) {
+  .zone { min-height: 0; }
+  .zone-grid { grid-template-columns: 1fr; gap: 24px; }
+  .zone-alt .zone-panel { order: -1; }   /* było: .zone-alt .zone-text { order: -1; } */
+  .deck, .svc-preview, .slider { height: 260px; }
+  .cta-strip { flex-direction: column; text-align: center; }
+}
+
+/* -- reduced motion: wszystko widoczne od razu -- */
+@media (prefers-reduced-motion: reduce) {
+  .zone-text, .zone-panel {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+    transition: none;
+  }
 }
 
 /* ==== 6. Animacje ==== */
