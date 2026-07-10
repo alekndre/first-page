@@ -19,13 +19,24 @@
       </a>
 
       <nav class="nav-links">
-        <a href="o-nas.html">O firmie</a>
-        <a href="uslugi.html">Usługi</a>
-        <a href="projekty.html">Projekty</a>
-        <a href="kontakt.html">Kontakt</a>
+        <a href="o-nas.html" data-i18n="nav_about">O firmie</a>
+        <a href="uslugi.html" data-i18n="nav_services">Usługi</a>
+        <a href="projekty.html" data-i18n="nav_projects">Projekty</a>
+        <a href="certyfikaty.html" data-i18n="nav_certificate">Certyfikaty</a>
+        <a href="geleria.html" data-i18n="nav_galery">Galeria</a>
+        <a href="kontakt.html" data-i18n="nav_contact">Kontakt</a>
       </nav>
 
       <div class="navbar-actions">
+
+        <!-- language switcher -->
+        <div class="lang-switch">
+          <button class="lang-btn active" data-lang="pl">PL</button>
+          <span class="lang-divider">|</span>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+
+        <!-- dark / light switcher -->
         <button class="theme-toggle" aria-label="Przełącz motyw">
           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round">
@@ -37,6 +48,8 @@
             <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
           </svg>
         </button>
+
+        <!-- slicer -->
         <button class="hamburger" aria-label="Otwórz menu">☰</button>
       </div>
     </header>
@@ -48,16 +61,18 @@
 
     <div class="hero-text">
       <h1>Montech Serwis</h1>
-      <p class="subtitle">Montaż i serwis instalacji</p>
+      <p class="subtitle" data-i18n="hero_subtitle">Montaż i serwis instalacji</p>
     </div>
   </div>
 
     <div class="content">
       <nav class="panel">
-        <a href="o-nas.html" class="tile">O firmie</a>
-        <a href="uslugi.html" class="tile">Usługi</a>
-        <a href="projekty.html" class="tile">Projekty</a>
-        <a href="kontakt.html" class="tile">Kontakt</a>
+        <a href="o-nas.html" class="tile" data-i18n="nav_about">O firmie</a>
+        <a href="uslugi.html" class="tile" data-i18n="nav_services">Usługi</a>
+        <a href="projekty.html" class="tile" data-i18n="nav_projects">Projekty</a>
+        <a href="certyfikaty.html" class="tile" data-i18n="nav_certificate">Certyfikaty</a>
+        <a href="geleria.html" class="tile" data-i18n="nav_galery">Galeria</a>
+        <a href="kontakt.html" class="tile" data-i18n="nav_contact">Kontakt</a>
       </nav>
     </div>
     <script src="js/script.js"></script>

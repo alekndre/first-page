@@ -116,3 +116,56 @@ themeToggle.addEventListener('click', () => {
   localStorage.setItem('theme', next);
   syncThemeAssets();
 });
+
+// ---- Przełącznik języka ----
+const translations = {
+  pl: {
+    nav_about: "O firmie",
+    nav_services: "Usługi",
+    nav_projects: "Projekty",
+    nav_contact: "Kontakt",
+    nav_certificate: "Certyfikaty",
+    nav_galery: "Galeria",
+    hero_subtitle: "Montaż i serwis instalacji",
+  },
+  en: {
+    nav_about: "About us",
+    nav_services: "Services",
+    nav_projects: "Projects",
+    nav_contact: "Contact",
+    nav_certificate: "Certificates",
+    nav_galery: "Galery",
+    hero_subtitle: "Installation and maintenance services",
+  },
+};
+
+function setLanguage(lang) {
+  // podmień teksty we wszystkich oznaczonych elementach
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.dataset.i18n;
+    if (translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+
+  // zaktualizuj podświetlenie PL/EN
+  document.querySelectorAll(".lang-btn").forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.lang === lang);
+  });
+
+  // język dokumentu (dostępność + SEO)
+  document.documentElement.lang = lang;
+
+  // zapamiętaj wybór między podstronami i wizytami
+  localStorage.setItem("lang", lang);
+}
+
+document.querySelectorAll(".lang-btn").forEach((btn) => {
+  btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+});
+
+// przy wczytaniu strony: przywróć zapisany język
+const savedLang = localStorage.getItem("lang") || "pl";
+if (savedLang !== "pl") {
+  setLanguage(savedLang);
+}
