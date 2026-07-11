@@ -13,7 +13,6 @@
   background-color: var(--nav-bg);
   backdrop-filter: blur(14px) saturate(1.2);
   -webkit-backdrop-filter: blur(14px) saturate(1.2);
-  border-bottom: 0px solid var(--border);
 }
 
 .logo {
@@ -147,6 +146,18 @@
   font-size: 13px;
   text-align: center;
   border-radius: 8px;
+}
+
+.scroll-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
 }
 
 /* ==== 8. ZMIANA MOTYWU ==== */

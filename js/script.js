@@ -1,30 +1,23 @@
+// ---- Preferencja reduced motion (używana w kilku miejscach) ----
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 // ---- Pokaz slajdów ----
 const slides = document.querySelectorAll('.hero-slide');
 let current = 0;
 
-setInterval(() => {
-  slides[current].classList.remove('active');
-  current = (current + 1) % slides.length;
-  slides[current].classList.add('active');
-}, 5000);
+if (slides.length) {
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 5000);
+}
 
 // ---- Menu hamburgerowe ----
 const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.nav-links');
 let scrollOpen = 0;
 
-hamburger.addEventListener('click', () => {
-  menu.classList.toggle('open');
-  scrollOpen = window.scrollY;
-});
-
-window.addEventListener('scroll', () => {
-  if (Math.abs(window.scrollY - scrollOpen) > 60) {
-    menu.classList.remove('open');
-  }
-});
-
-// ---- Chowanie linków przy zawijaniu ----
 function checkNavbar() {
   menu.classList.remove('open');
   menu.classList.remove('collapsed');
@@ -36,8 +29,21 @@ function checkNavbar() {
   }
 }
 
-window.addEventListener('resize', checkNavbar);
-checkNavbar();
+if (hamburger && menu) {
+  hamburger.addEventListener('click', () => {
+    menu.classList.toggle('open');
+    scrollOpen = window.scrollY;
+  });
+
+  window.addEventListener('scroll', () => {
+    if (Math.abs(window.scrollY - scrollOpen) > 60) {
+      menu.classList.remove('open');
+    }
+  });
+
+  window.addEventListener('resize', checkNavbar);
+  checkNavbar();
+}
 
 /* ==== Podmiana grafik wg motywu ==== */
 function syncThemeAssets() {
@@ -101,21 +107,24 @@ window.addEventListener('load', function () {
 });
 
 /* ==== Przełącznik motywu ==== */
+/* ==== Przełącznik motywu ==== */
 const themeToggle = document.querySelector('.theme-toggle');
 let themeAnimTimer;
 
-themeToggle.addEventListener('click', () => {
-  const root = document.documentElement;
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const root = document.documentElement;
 
-  root.classList.add('theme-anim');
-  clearTimeout(themeAnimTimer);
-  themeAnimTimer = setTimeout(() => root.classList.remove('theme-anim'), 400);
+    root.classList.add('theme-anim');
+    clearTimeout(themeAnimTimer);
+    themeAnimTimer = setTimeout(() => root.classList.remove('theme-anim'), 400);
 
-  const next = root.dataset.theme === 'light' ? 'dark' : 'light';
-  root.dataset.theme = next;
-  localStorage.setItem('theme', next);
-  syncThemeAssets();
-});
+    const next = root.dataset.theme === 'light' ? 'dark' : 'light';
+    root.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    syncThemeAssets();
+  });
+}
 
 function setLanguage(lang) {
   // podmień teksty we wszystkich oznaczonych elementach
@@ -136,6 +145,7 @@ function setLanguage(lang) {
 
   // zapamiętaj wybór między podstronami i wizytami
   localStorage.setItem("lang", lang);
+  applyAriaI18n(lang);
 }
 
 document.querySelectorAll(".lang-btn").forEach((btn) => {
@@ -189,3 +199,68 @@ document.querySelectorAll('.slider-btn').forEach(btn => {
     projCount.textContent = `${projIndex + 1} / ${projSlides.length}`;
   });
 });
+
+/* ==== Statystyki: tilt 3D za kursorem ==== */
+// const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (!reduceMotion) {
+  document.querySelectorAll('.stat').forEach(stat => {
+    stat.addEventListener('mousemove', (e) => {
+      const r = stat.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width;   // 0..1
+      const y = (e.clientY - r.top) / r.height;
+
+      const rotY = (x - 0.5) * 14;   // maks. ±7 stopni
+      const rotX = (0.5 - y) * 14;
+
+      stat.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+      stat.style.setProperty('--mx', `${x * 100}%`);
+      stat.style.setProperty('--my', `${y * 100}%`);
+      stat.classList.add('tilting');
+    });
+
+    stat.addEventListener('mouseleave', () => {
+      stat.style.transform = '';
+      stat.classList.remove('tilting');
+    });
+  });
+}
+
+/* ==== Scroll progress bar ==== */
+const progressBar = document.querySelector('.scroll-progress');
+
+if (progressBar) {
+  window.addEventListener('scroll', () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.transform = `scaleX(${max > 0 ? window.scrollY / max : 0})`;
+  }, { passive: true });
+}
+
+/* ==== Dot nav: active section ==== */
+const dots = document.querySelectorAll('.dot');
+
+if (dots.length) {
+  const dotObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        dots.forEach(d => d.classList.remove('active'));
+        const dot = document.querySelector(`.dot[href="#${entry.target.id}"]`);
+        if (dot) dot.classList.add('active');
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.hero, #zone-about, #zone-services, #zone-projects')
+    .forEach(z => dotObserver.observe(z));
+}
+
+/* ==== i18n for aria-labels ==== */
+// wywoływane też z setLanguage — patrz punkt 4
+function applyAriaI18n(lang) {
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+    const key = el.dataset.i18nAria;
+    if (translations[lang][key]) {
+      el.setAttribute('aria-label', translations[lang][key]);
+    }
+  });
+}

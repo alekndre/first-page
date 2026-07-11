@@ -6,7 +6,6 @@
   --card-hover: #232019;
   --text: #e9e5dd;
   --text-muted: #9b958a;
-  --accent: #5a6453;
   --border: rgb(46, 39, 39);
   --marquee-bg: rgba(20, 18, 16, 0.85);
 
@@ -26,11 +25,10 @@
   --card-hover: #eeebe4;
   --text: #2d2a26;
   --text-muted: #8a857d;
-  --accent: #7d8b74;
   --border: #e2dfd7;
   --marquee-bg: #ffffff;
 
-  --nav-bg: rgb(245, 241, 232, 0.8);      /* jasne szkło z kremu strony */
+  --nav-bg: rgba(245, 241, 232, 0.8);      /* jasne szkło z kremu strony */
   --nav-bg-solid: rgba(245, 241, 232, 0.9);
   --nav-text: #2d2a26;
   --nav-link: rgba(45, 42, 38, 0.75);

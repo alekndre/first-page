@@ -1,4 +1,38 @@
-/* sekcja 5: strefy, duchy, talia, podgląd usług, slider, cta-strip + ich mobile i reduced-motion */
+/* sekcja 5: strefy, duchy, talia, podgląd usług, slider, cta-strip + ich mobile i reduced-motion, pasek statystyk */
+
+/* dot navigator */
+
+.dot-nav {
+  position: fixed;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 5;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  opacity: 0.4;
+  transition: opacity 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
+.dot:hover { opacity: 0.8; }
+
+.dot.active {
+  background: var(--accent);
+  opacity: 1;
+  transform: scale(1.3);
+}
+
+@media (max-width: 760px) {
+  .dot-nav { display: none; }
+}
 
 /* ==== 5. Strefy nawigacyjne ==== */
 .zones {
@@ -14,6 +48,7 @@
   align-items: center;
   overflow: hidden;
   padding: 28px 0;
+  border-bottom: 1px solid var(--border);
 }
 
 .zone-ghost {
@@ -288,4 +323,85 @@
     clip-path: none;
     transition: none;
   }
+}
+
+/* ==== Pasek statystyk ==== */
+.stats {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  perspective: 900px;
+}
+
+.stat {
+  position: relative;
+  padding: 20px 12px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out,
+              background-color 0.3s ease,
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+/* stan aktywny — tilt z JS */
+.stat.tilting {
+  background-color: var(--card);
+  border-color: var(--border);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* refleks światła za kursorem */
+.stat::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%),
+              rgba(239, 159, 39, 0.12), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.stat.tilting::after { opacity: 1; }
+
+.stat-num {
+  display: block;
+  font-family: 'Stardos Stencil', serif;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.1;
+  color: var(--text);
+  transition: color 0.25s ease;
+}
+
+.stat-label {
+  display: block;
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* hover: kolor tylko na liczbie, bez skalowania */
+.stat:hover,
+.stat.tilting {
+  background-color: var(--card);
+}
+
+.stat:hover .stat-num,
+.stat.tilting .stat-num {
+  color: var(--accent);
+}
+
+@media (max-width: 560px) {
+  .stats { gap: 12px; padding: 32px 16px; }
+  .stat { padding: 16px 6px; }
+  .stat-label { font-size: 12px; }
 }

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Montech Serwis</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@400;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
     <script>
       document.documentElement.dataset.theme = localStorage.getItem('theme') || 'dark';
     </script>
@@ -15,9 +15,17 @@
     <link rel="stylesheet" href="css/hero.css">
     <link rel="stylesheet" href="css/zones.css">
     <link rel="stylesheet" href="css/marquee.css">
+    <meta name="description" content="Montech Serwis — montaż i serwis instalacji okrętowych: rurociągi, systemy przeciwpożarowe, instalacje sanitarne. Gdańsk, stocznie w całej Europie.">
   </head>
 
   <body>
+    <nav class="dot-nav" data-i18n-aria="dots_nav" aria-label="Sekcje strony">
+      <a href="#top" class="dot" data-i18n-aria="nav_home" aria-label="Strona główna"></a>
+      <a href="#zone-about" class="dot" data-i18n-aria="nav_about" aria-label="O firmie"></a>
+      <a href="#zone-services" class="dot" data-i18n-aria="nav_services" aria-label="Usługi"></a>
+      <a href="#zone-projects" class="dot" data-i18n-aria="nav_projects" aria-label="Projekty"></a>
+    </nav>
+
     <header class="navbar">
       <a href="index.html" class="logo">
         <img src="img/logo/logo_ms-dark.png" alt="MontechSerwis" class="logo-img">
@@ -28,7 +36,7 @@
         <a href="uslugi.html" data-i18n="nav_services">Usługi</a>
         <a href="projekty.html" data-i18n="nav_projects">Projekty</a>
         <a href="certyfikaty.html" data-i18n="nav_certificate">Certyfikaty</a>
-        <a href="galeria.html" data-i18n="nav_gallery">Gallery</a>
+        <a href="galeria.html" data-i18n="nav_gallery">Galeria</a>
         <a href="kontakt.html" data-i18n="nav_contact">Kontakt</a>
       </nav>
 
@@ -57,9 +65,11 @@
         <!-- slicer -->
         <button class="hamburger" aria-label="Otwórz menu">☰</button>
       </div>
+
+      <div class="scroll-progress" aria-hidden="true"></div>
     </header>
 
-  <section class="hero">
+  <section class="hero" id="top">
     <img src="img/ship1.jpg" alt="" class="hero-slide active">
     <img src="img/ship2.jpg" alt="" class="hero-slide">
     <img src="img/ship3.jpg" alt="" class="hero-slide">
@@ -70,9 +80,24 @@
     <div class="hero__content">
       <h1>Montech Serwis</h1>
       <p data-i18n="hero_subtitle">Montaż i serwis instalacji</p>
-      <a href="#zone-services" class="hero__cta" data-i18n="hero_cta">Nasze usługi</a>
+      <a href="uslugi.html" class="hero__cta" data-i18n="hero_cta">Nasze usługi</a>
     </div>
   </section>
+
+<section class="stats" aria-label="Montech w liczbach">
+  <div class="stat">
+    <span class="stat-num">15+</span>
+    <span class="stat-label" data-i18n="stat_years">lat doświadczenia</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">120+</span>
+    <span class="stat-label" data-i18n="stat_projects">zrealizowanych projektów</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">9</span>
+    <span class="stat-label" data-i18n="stat_countries">krajów Europy</span>
+  </div>
+</section>
 
 
 <main class="zones">
@@ -144,12 +169,6 @@
     </div>
   </section>
 
-  <!-- pasek CTA -->
-  <section class="cta-strip">
-    <p class="cta-text" data-i18n="cta_strip">Porozmawiajmy o Twoim projekcie</p>
-    <a href="kontakt.html" class="cta-btn" data-i18n="nav_contact">Kontakt</a>
-  </section>
-
 </main>
 
   <section class="logo-marquee" aria-label="Montech Partners">
@@ -158,12 +177,34 @@
       <div class="logo-marquee__item"><img src="img/partners-dark/partner-gf.png" alt="Georg Fischer"></div>
       <div class="logo-marquee__item"><img src="img/partners-dark/partner-blucher.png" alt="Blücher"></div> 
       <div class="logo-marquee__item"><img src="img/partners-dark/partner-marioff.png" alt="Marioff"></div>
-      <div class="logo-marquee__item"><img src="img/partners-dark/partner-roxtec.png" alt="Parker"></div>
-      <div class="logo-marquee__item"><img src="img/partners-dark/partner-parker.png" alt="Roxtec"></div>
+      <div class="logo-marquee__item"><img src="img/partners-dark/partner-roxtec.png" alt="Roxtec"></div>
+      <div class="logo-marquee__item"><img src="img/partners-dark/partner-parker.png" alt="Parker"></div>
       <div class="logo-marquee__item"><img src="img/partners-dark/partner-geberit.png" alt="Geberit"></div>
     </div>
   </section>
 
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">Montech Serwis</p>
+        <p class="footer-desc" data-i18n="footer_desc">Montaż i serwis instalacji okrętowych.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Nawigacja w stopce">
+        <a href="o-nas.html" data-i18n="nav_about">O firmie</a>
+        <a href="uslugi.html" data-i18n="nav_services">Usługi</a>
+        <a href="projekty.html" data-i18n="nav_projects">Projekty</a>
+        <a href="certyfikaty.html" data-i18n="nav_certificate">Certyfikaty</a>
+        <a href="galeria.html" data-i18n="nav_gallery">Galeria</a>
+        <a href="kontakt.html" data-i18n="nav_contact">Kontakt</a>
+      </nav>
+      <address class="footer-contact">
+        <a href="mailto:biuro@montech-serwis.pl">biuro@montech-serwis.pl</a>
+        <a href="tel:+48600000000">+48 600 000 000</a>
+        <span>ul. Stoczniowa 1, 80-000 Gdańsk</span>
+      </address>
+    </div>
+    <p class="footer-bottom">© 2026 Montech Serwis</p>
+  </footer>
 
   <script src="js/translations.js"></script>
   <script src="js/script.js"></script>
