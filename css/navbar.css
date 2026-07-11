@@ -1,0 +1,178 @@
+/* sekcja 3: navbar, logo, nav-links, lang-switch, hamburger, menu 3×3 + sekcje 8-9 (theme-toggle i theme-anim — to też "chrome" góry strony) */
+
+/* ==== 3. Navbar (ciemne szkło) ==== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 16px;
+  padding: 8px 20px;
+  background-color: var(--nav-bg);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border-bottom: 0px solid var(--border);
+}
+
+.logo {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 17px;
+  color: var(--nav-text);
+  text-decoration: none;
+  white-space: nowrap;
+  grid-column: 1;
+}
+
+.logo-img {
+  height: 30px;      /* dopasuj do wysokości paska */
+  width: auto;       /* proporcje zachowane automatycznie */
+  display: block;    /* usuwa kilka px odstępu pod obrazkiem */
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  grid-column: 2;
+}
+
+.nav-links a {
+  color: var(--nav-link);
+  text-decoration: none;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--nav-text);
+  background-color: var(--nav-link-hover-bg);
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  grid-column: 3;
+  justify-self: end;
+}
+
+[data-i18n] {
+  transition: opacity 0.2s ease;
+}
+
+.lang-fading [data-i18n] {
+  opacity: 0;
+}
+
+
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  white-space: nowrap;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  padding: 4px 6px;
+  border-radius: 8px;
+  color: var(--nav-text);
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.lang-btn:hover {
+  color: var(--nav-text);
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.lang-btn.active {
+  color: var(--nav-text);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.lang-divider {
+  color: var(--nav-text);
+  font-size: 12px;
+}
+
+.hamburger {
+  display: block;    /* widoczny zawsze */
+  background: none;
+  border: none;
+  color: var(--nav-text);
+  font-size: 22px;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+/* linki chowane, gdy JS wykryje zawijanie */
+.nav-links.collapsed {
+  display: none;
+}
+
+/* rozwinięte menu 3x3 — na każdej szerokości ekranu */
+.nav-links.open {
+  display: grid;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  padding: 10px 16px 14px;
+  background-color: var(--nav-bg-solid); /* ciemniej: na ciemnej stronie 0.58 było za rzadkie */
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border-bottom: 1px solid var(--border);
+  grid-column: 1 / -1;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.nav-links.open a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 4px;
+  font-size: 13px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+/* ==== 8. ZMIANA MOTYWU ==== */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--nav-text);          /* navbar jest zawsze ciemny, więc ikona zawsze biała */
+  cursor: pointer;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle svg { width: 18px; height: 18px; }
+
+/* pokazujemy ikonę motywu, KTÓRY DOSTANIESZ po kliknięciu */
+.icon-moon { display: none; }
+:root[data-theme="light"] .icon-sun  { display: none; }
+:root[data-theme="light"] .icon-moon { display: block; }
+
+/* ==== 9. Płynne przełączanie motywu ==== */
+html.theme-anim,
+html.theme-anim *,
+html.theme-anim *::before,
+html.theme-anim *::after {
+  transition: background-color 0.35s ease,
+              color 0.35s ease,
+              border-color 0.35s ease !important;
+}

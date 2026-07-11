@@ -1,0 +1,53 @@
+/* sekcja 7: pasek partnerów z jego reduced-motion */
+
+/* ==== 7. PASEK PARTNERZY ==== */
+.logo-marquee {
+  overflow: hidden;
+  padding: 10px 0;
+  background-color: var(--nav-bg);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border-top: 0px solid var(--border);
+}
+
+.logo-marquee__track {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  width: max-content;
+  animation: marquee-scroll 85s linear infinite;
+}
+
+.logo-marquee__item {
+  flex-shrink: 0;
+}
+
+.logo-marquee__item img {
+  height: 30px;
+  width: auto;
+  display: block;
+  filter: opacity(0.6);            /* 0.65 za mocno gasiło jasne loga na ciemnym */
+  transition: filter 0.3s ease;
+}
+
+.logo-marquee__item img:hover {
+  filter: grayscale(0) opacity(1);
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.logo-marquee:hover .logo-marquee__track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee__track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
+  }
+}

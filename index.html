@@ -9,7 +9,12 @@
     <script>
       document.documentElement.dataset.theme = localStorage.getItem('theme') || 'dark';
     </script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/colors.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/zones.css">
+    <link rel="stylesheet" href="css/marquee.css">
   </head>
 
   <body>
@@ -23,7 +28,7 @@
         <a href="uslugi.html" data-i18n="nav_services">Usługi</a>
         <a href="projekty.html" data-i18n="nav_projects">Projekty</a>
         <a href="certyfikaty.html" data-i18n="nav_certificate">Certyfikaty</a>
-        <a href="geleria.html" data-i18n="nav_galery">Galeria</a>
+        <a href="galeria.html" data-i18n="nav_gallery">Gallery</a>
         <a href="kontakt.html" data-i18n="nav_contact">Kontakt</a>
       </nav>
 
@@ -54,18 +59,21 @@
       </div>
     </header>
 
-  <div class="hero">
-    <img src="img/ship1.jpg" alt="Opis 3" class="hero-slide active">
-    <img src="img/ship2.jpg" alt="Opis 2" class="hero-slide">
-    <img src="img/ship3.jpg" alt="Opis 1" class="hero-slide">
-    <img src="img/ship4.jpg" alt="Opis 2" class="hero-slide">
-    <img src="img/ship5.jpg" alt="Opis 3" class="hero-slide">
+  <section class="hero">
+    <img src="img/ship1.jpg" alt="" class="hero-slide active">
+    <img src="img/ship2.jpg" alt="" class="hero-slide">
+    <img src="img/ship3.jpg" alt="" class="hero-slide">
+    <img src="img/ship4.jpg" alt="" class="hero-slide">
+    <img src="img/ship5.jpg" alt="" class="hero-slide">
 
-    <div class="hero-text">
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
       <h1>Montech Serwis</h1>
-      <p class="subtitle" data-i18n="hero_subtitle">Montaż i serwis instalacji</p>
+      <p data-i18n="hero_subtitle">Montaż i serwis instalacji</p>
+      <a href="#zone-services" class="hero__cta" data-i18n="hero_cta">Nasze usługi</a>
     </div>
-  </div>
+  </section>
+
 
 <main class="zones">
 
@@ -144,9 +152,6 @@
 
 </main>
 
-
-    <script src="js/script.js"></script>
-
   <section class="logo-marquee" aria-label="Montech Partners">
     <div class="logo-marquee__track">
       <div class="logo-marquee__item"><img src="img/partners-dark/partner-viega.png" alt="Viega"></div>
@@ -159,5 +164,8 @@
     </div>
   </section>
 
-  </body>
+
+  <script src="js/translations.js"></script>
+  <script src="js/script.js"></script>
+</body>
 </html>

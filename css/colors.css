@@ -1,0 +1,40 @@
+/* ==== 1. Zmienne: cała paleta w jednym miejscu ==== */
+/* motyw ciemny = domyślny */
+:root {
+  --bg: #14120f;
+  --card: #1e1b17;
+  --card-hover: #232019;
+  --text: #e9e5dd;
+  --text-muted: #9b958a;
+  --accent: #5a6453;
+  --border: rgb(46, 39, 39);
+  --marquee-bg: rgba(20, 18, 16, 0.85);
+
+  --nav-bg: rgba(20, 18, 16, 0.8);
+  --nav-bg-solid: rgba(20, 18, 16, 0.85);   /* dropdown slicera */
+  --nav-text: #ffffff;
+  --nav-link: rgba(255, 255, 255, 0.75);
+  --nav-link-hover-bg: rgba(255, 255, 255, 0.12);
+
+  --accent: #ef9f27;
+}
+
+/* motyw jasny — Twoja pierwotna paleta */
+:root[data-theme="light"] {
+  --bg: #f3f1ec;
+  --card: #fbfaf8;
+  --card-hover: #eeebe4;
+  --text: #2d2a26;
+  --text-muted: #8a857d;
+  --accent: #7d8b74;
+  --border: #e2dfd7;
+  --marquee-bg: #ffffff;
+
+  --nav-bg: rgb(245, 241, 232, 0.8);      /* jasne szkło z kremu strony */
+  --nav-bg-solid: rgba(245, 241, 232, 0.9);
+  --nav-text: #2d2a26;
+  --nav-link: rgba(45, 42, 38, 0.75);
+  --nav-link-hover-bg: rgba(45, 42, 38, 0.08);
+
+  --accent: #c47c10;
+}
