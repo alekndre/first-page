@@ -1,14 +1,97 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>O mnie</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <a href="index.html">← Powrót</a>
-  <h1>O mnie</h1>
-  <p>Treść podstrony...</p>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projekty — Montech Serwis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+      document.documentElement.dataset.theme = localStorage.getItem('theme') || 'dark';
+    </script>
+    <link rel="stylesheet" href="css/colors.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/zones.css">
+    <link rel="stylesheet" href="css/marquee.css">
+    <link rel="stylesheet" href="css/page.css">
+  </head>
+
+  <body>
+    <header class="navbar">
+      <a href="index.html" class="logo">
+        <img src="img/logo/logo_ms-dark.png" alt="MontechSerwis" class="logo-img">
+      </a>
+
+      <nav class="nav-links">
+        <a href="o-nas.html" data-i18n="nav_about">O firmie</a>
+        <a href="uslugi.html" data-i18n="nav_services">Usługi</a>
+        <a href="projekty.html" data-i18n="nav_projects">Projekty</a>
+        <a href="certyfikaty.html" data-i18n="nav_certificate">Certyfikaty</a>
+        <a href="galeria.html" data-i18n="nav_gallery">Galeria</a>
+        <a href="kontakt.html" data-i18n="nav_contact">Kontakt</a>
+      </nav>
+
+      <div class="navbar-actions">
+        <div class="lang-switch">
+          <button class="lang-btn active" data-lang="pl">PL</button>
+          <span class="lang-divider">|</span>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+
+        <button class="theme-toggle" aria-label="Przełącz motyw">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22
+                    M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+          </svg>
+        </button>
+
+        <button class="hamburger" aria-label="Otwórz menu">☰</button>
+      </div>
+
+      <div class="scroll-progress" aria-hidden="true"></div>
+    </header>
+
+    <section class="page-hero">
+      <span class="zone-ghost" aria-hidden="true">03</span>
+      <p class="zone-kicker" data-i18n="projects_kicker">Realizacje</p>
+      <h1 data-i18n="nav_projects">Projekty</h1>
+      <p class="page-lead" data-i18n="page_projects_lead">Wybrane realizacje z ostatnich lat.</p>
+    </section>
+
+    <main class="page-content">
+      <div class="placeholder" data-i18n="page_placeholder">Treść w przygotowaniu.</div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">Montech Serwis</p>
+          <p class="footer-desc" data-i18n="footer_desc">Montaż i serwis instalacji okrętowych.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Nawigacja w stopce">
+          <a href="o-nas.html" data-i18n="nav_about">O firmie</a>
+          <a href="uslugi.html" data-i18n="nav_services">Usługi</a>
+          <a href="projekty.html" data-i18n="nav_projects">Projekty</a>
+          <a href="certyfikaty.html" data-i18n="nav_certificate">Certyfikaty</a>
+          <a href="galeria.html" data-i18n="nav_gallery">Galeria</a>
+          <a href="kontakt.html" data-i18n="nav_contact">Kontakt</a>
+        </nav>
+        <address class="footer-contact">
+          <a href="mailto:biuro@montech-serwis.pl">biuro@montech-serwis.pl</a>
+          <a href="tel:+48600000000">+48 600 000 000</a>
+          <span>ul. Stoczniowa 1, 80-000 Gdańsk</span>
+        </address>
+      </div>
+      <p class="footer-bottom">© 2026 Montech Serwis</p>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/script.js"></script>
+  </body>
 </html>

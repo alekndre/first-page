@@ -54,12 +54,13 @@ function syncThemeAssets() {
     img.src = img.src.replace(/partners-(light|dark)/, `partners-${theme}`);
   });
 
-  // logo Montech w navbarze
-  const logo = document.querySelector('.logo-img');
-  if (logo) {
+  // logo Montech (navbar + ewentualnie stopka)
+  document.querySelectorAll('.logo-img, .footer-logo').forEach(logo => {
     logo.src = logo.src.replace(/logo_ms-(light|dark)/, `logo_ms-${theme}`);
-  }
+  });
 }
+
+syncThemeAssets();
 
 /* ==== PASEK PARTNERZY: klonowanie logotypów do pełnej pętli ==== */
 window.addEventListener('load', function () {

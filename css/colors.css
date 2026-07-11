@@ -36,3 +36,5 @@
 
   --accent: #c47c10;
 }
+
+:root[data-theme="light"] .logo-img--dark { display: none; }
