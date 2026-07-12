@@ -64,21 +64,16 @@ syncThemeAssets();
 
 /* ==== PASEK PARTNERZY: klonowanie logotypów do pełnej pętli ==== */
 window.addEventListener('load', function () {
-  const track = document.querySelector('.logo-marquee__track');
-  if (!track) {
-    console.warn('logo-marquee: nie znaleziono .logo-marquee__track');
-    return;
-  }
+  syncThemeAssets();
 
+  const track = document.querySelector('.logo-marquee__track');
   const originals = [...track.children];
   const setWidth = track.scrollWidth; // szerokość jednego kompletu z gapami
   if (setWidth === 0) return;
 
-  syncThemeAssets(); // najpierw właściwe pliki, potem klonowanie je skopiuje
-
   // ile kompletów potrzeba, żeby połowa tracku pokryła całe okno
   const perHalf = Math.max(1, Math.ceil(window.innerWidth / setWidth));
-  const totalCopies = perHalf * 2; // parzysta liczba => -50% trafia w szew
+  const totalCopies = perHalf * 8; // parzysta liczba => -50% trafia w szew
 
   for (let c = 1; c < totalCopies; c++) {
     originals.forEach(el => {
@@ -107,7 +102,6 @@ window.addEventListener('load', function () {
   });
 });
 
-/* ==== Przełącznik motywu ==== */
 /* ==== Przełącznik motywu ==== */
 const themeToggle = document.querySelector('.theme-toggle');
 let themeAnimTimer;

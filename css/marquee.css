@@ -69,6 +69,11 @@
   align-items: start;
 }
 
+.footer-grid > *:not(:last-child) {
+  border-right: 1px solid var(--border);
+  padding-right: 40px;
+}
+
 .footer-brand {
   font-family: 'Stardos Stencil', serif;
   font-size: 20px;
@@ -120,9 +125,59 @@
   color: var(--text-muted);
 }
 
+.contact-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* symetryczny odstęp po obu stronach kreski: treść —28px— kreska —28px— treść */
+.contact-dept:first-child { padding-right: 28px; }
+.contact-dept:last-child {
+  padding-left: 28px;
+  border-left: 1px solid var(--border);
+}
+
+.contact-dept {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-dept-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 4px;
+}
+
+.contact-address {
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+  padding-top: 16px;
+}
+
+
 @media (max-width: 760px) {
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 28px;
+  }
+  .footer-grid > * {
+    padding: 0;                    /* kasujemy poziomy padding z desktopu */
+  }
+  .footer-grid > *:not(:last-child) {
+    border-right: none;            /* zdejmij pionową kreskę */
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 28px;
+  }
+  .contact-split { grid-template-columns: 1fr; gap: 24px; }
+  .contact-dept:first-child { padding-right: 0; }
+  .contact-dept:last-child {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
   }
 }
