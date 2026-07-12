@@ -3,21 +3,32 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O firmie — Montech Serwis</title>
+    <title>{{ title }}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
     <script>
       document.documentElement.dataset.theme = localStorage.getItem('theme') || 'dark';
     </script>
+    {% if description %}<meta name="description" content="{{ description }}">{% endif %}
     <link rel="stylesheet" href="css/colors.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/zones.css">
     <link rel="stylesheet" href="css/marquee.css">
-    <link rel="stylesheet" href="css/page.css">
+    {% for style in pageStyles %}<link rel="stylesheet" href="css/{{ style }}.css">
+    {% endfor %}
   </head>
 
   <body>
+    {% if isHome %}
+    <nav class="dot-nav" data-i18n-aria="dots_nav" aria-label="Sekcje strony">
+      <a href="#top" class="dot" data-i18n-aria="nav_home" aria-label="Strona główna"></a>
+      <a href="#zone-about" class="dot" data-i18n-aria="nav_about" aria-label="O firmie"></a>
+      <a href="#zone-services" class="dot" data-i18n-aria="nav_services" aria-label="Usługi"></a>
+      <a href="#zone-projects" class="dot" data-i18n-aria="nav_projects" aria-label="Projekty"></a>
+    </nav>
+    {% endif %}
+
     <header class="navbar">
       <a href="index.html" class="logo">
         <img src="img/logo/logo_ms-dark.png" alt="MontechSerwis" class="logo-img">
@@ -57,24 +68,44 @@
       <div class="scroll-progress" aria-hidden="true"></div>
     </header>
 
-    <section class="page-hero">
-      <span class="zone-ghost" aria-hidden="true">01</span>
-      <p class="zone-kicker" data-i18n="about_kicker">Poznaj nas</p>
-      <h1 data-i18n="nav_about">O firmie</h1>
-      <p class="page-lead" data-i18n="page_about_lead">Kim jesteśmy i skąd bierze się nasze doświadczenie.</p>
-    </section>
-
-    <main class="page-content">
-      <div class="placeholder" data-i18n="page_placeholder">Treść w przygotowaniu.</div>
-    </main>
+    {{ content | safe }}
 
     <footer class="footer">
       <div class="footer-grid">
         <div>
           <p class="footer-brand">Montech Serwis</p>
           <p class="footer-desc" data-i18n="footer_desc">Montaż i serwis instalacji okrętowych.</p>
+          <br>
+          <p class="contact-dept-label">NIP: 9580672783</p>
+          <p class="contact-dept-label">REGON: 220213079</p>
         </div>
+        <address class="footer-contact">
+          <p class="footer-brand" data-i18n="nav_contact">Kontakt</p>
+          <div class="contact-split">
+            <div class="contact-dept">
+              <p class="contact-dept-label" data-i18n="contact_office">Biuro</p>
+              <a href="mailto:office@montechserwis.com">office@montechserwis.com</a>
+              <a href="tel:+48698125290">+48 698 125 290</a>
+            </div>
+            <div class="contact-dept">
+              <p class="contact-dept-label" data-i18n="contact_service">Serwis</p>
+              <a href="mailto:montechserwis@gmail.com">montechserwis@gmail.com</a>
+              <a href="tel:+48500601240">+48 500 601 240</a>
+            </div>
+          </div>
+          <div class="contact-address">
+            <p class="contact-dept-label" data-i18n="contact_address">Adres</p>
+            <a href="https://maps.app.goo.gl/WaFb8BMX5vGgM9K17"
+              target="_blank"
+              rel="noopener noreferrer">
+              <span>Aleja Grunwaldzka 487c,<br></span>
+              <span>80-309 Gdańsk,<br></span>
+              <span data-i18n="contact_country">Polska</span>
+            </a>
+          </div>
+        </address>
         <nav class="footer-nav" aria-label="Nawigacja w stopce">
+          <p class="footer-brand">Menu</p>
           <a href="o-nas.html" data-i18n="nav_about">O firmie</a>
           <a href="uslugi.html" data-i18n="nav_services">Usługi</a>
           <a href="projekty.html" data-i18n="nav_projects">Projekty</a>
@@ -82,11 +113,6 @@
           <a href="galeria.html" data-i18n="nav_gallery">Galeria</a>
           <a href="kontakt.html" data-i18n="nav_contact">Kontakt</a>
         </nav>
-        <address class="footer-contact">
-          <a href="mailto:biuro@montech-serwis.pl">biuro@montech-serwis.pl</a>
-          <a href="tel:+48600000000">+48 600 000 000</a>
-          <span>ul. Stoczniowa 1, 80-000 Gdańsk</span>
-        </address>
       </div>
       <p class="footer-bottom">© 2026 Montech Serwis</p>
     </footer>
