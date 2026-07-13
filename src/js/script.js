@@ -149,9 +149,7 @@ document.querySelectorAll(".lang-btn").forEach((btn) => {
 
 // przy wczytaniu strony: przywróć zapisany język
 const savedLang = localStorage.getItem("lang") || "en";
-if (savedLang !== "en") {
-  setLanguage(savedLang);
-}
+setLanguage(savedLang);
 
 /* ==== Strefy: wejście przy scrollu ==== */
 const zones = document.querySelectorAll('.zone');
