@@ -148,8 +148,8 @@ document.querySelectorAll(".lang-btn").forEach((btn) => {
 });
 
 // przy wczytaniu strony: przywróć zapisany język
-const savedLang = localStorage.getItem("lang") || "pl";
-if (savedLang !== "pl") {
+const savedLang = localStorage.getItem("lang") || "en";
+if (savedLang !== "en") {
   setLanguage(savedLang);
 }
 

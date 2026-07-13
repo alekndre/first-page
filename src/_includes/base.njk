@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,11 +22,11 @@
 
   <body>
     {% if isHome %}
-    <nav class="dot-nav" data-i18n-aria="dots_nav" aria-label="Sekcje strony">
-      <a href="#top" class="dot" data-i18n-aria="nav_home" aria-label="Strona główna"></a>
-      <a href="#zone-about" class="dot" data-i18n-aria="nav_about" aria-label="O firmie"></a>
-      <a href="#zone-services" class="dot" data-i18n-aria="nav_services" aria-label="Usługi"></a>
-      <a href="#zone-projects" class="dot" data-i18n-aria="nav_projects" aria-label="Projekty"></a>
+    <nav class="dot-nav" data-i18n-aria="dots_nav" aria-label="Page sections">
+      <a href="#top" class="dot" data-i18n-aria="nav_home" aria-label="Home"></a>
+      <a href="#zone-about" class="dot" data-i18n-aria="nav_about" aria-label="About us"></a>
+      <a href="#zone-services" class="dot" data-i18n-aria="nav_services" aria-label="Services"></a>
+      <a href="#zone-projects" class="dot" data-i18n-aria="nav_projects" aria-label="Projects"></a>
     </nav>
     {% endif %}
 
@@ -36,22 +36,22 @@
       </a>
 
       <nav class="nav-links">
-        <a href="o-nas.html" data-i18n="nav_about">O firmie</a>
-        <a href="uslugi.html" data-i18n="nav_services">Usługi</a>
-        <a href="projekty.html" data-i18n="nav_projects">Projekty</a>
-        <a href="certyfikaty.html" data-i18n="nav_certificate">Certyfikaty</a>
-        <a href="galeria.html" data-i18n="nav_gallery">Galeria</a>
-        <a href="kontakt.html" data-i18n="nav_contact">Kontakt</a>
+        <a href="o-nas.html" data-i18n="nav_about">About us</a>
+        <a href="uslugi.html" data-i18n="nav_services">Services</a>
+        <a href="projekty.html" data-i18n="nav_projects">Projects</a>
+        <a href="certyfikaty.html" data-i18n="nav_certificate">Certificates</a>
+        <a href="galeria.html" data-i18n="nav_gallery">Gallery</a>
+        <a href="kontakt.html" data-i18n="nav_contact">Contact</a>
       </nav>
 
       <div class="navbar-actions">
         <div class="lang-switch">
-          <button class="lang-btn active" data-lang="pl">PL</button>
+          <button class="lang-btn active" data-lang="en">EN</button>
           <span class="lang-divider">|</span>
-          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="pl">PL</button>
         </div>
 
-        <button class="theme-toggle" aria-label="Przełącz motyw">
+        <button class="theme-toggle" aria-label="Theme Switcher">
           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round">
             <circle cx="12" cy="12" r="4"/>
@@ -63,7 +63,7 @@
           </svg>
         </button>
 
-        <button class="hamburger" aria-label="Otwórz menu">☰</button>
+        <button class="hamburger" aria-label="Open Menu">☰</button>
       </div>
 
       <div class="scroll-progress" aria-hidden="true"></div>
@@ -75,44 +75,44 @@
       <div class="footer-grid">
         <div>
           <p class="footer-brand">Montech Serwis</p>
-          <p class="footer-desc" data-i18n="footer_desc">Montaż i serwis instalacji okrętowych.</p>
+          <p class="footer-desc" data-i18n="footer_desc">Installation and maintenance services</p>
           <br>
           <p class="contact-dept-label">NIP: 9580672783</p>
           <p class="contact-dept-label">REGON: 220213079</p>
         </div>
         <address class="footer-contact">
-          <p class="footer-brand" data-i18n="nav_contact">Kontakt</p>
+          <p class="footer-brand" data-i18n="nav_contact">Contact</p>
           <div class="contact-split">
             <div class="contact-dept">
-              <p class="contact-dept-label" data-i18n="contact_office">Biuro</p>
+              <p class="contact-dept-label" data-i18n="contact_office">Office</p>
               <a href="mailto:office@montechserwis.com">office@montechserwis.com</a>
               <a href="tel:+48698125290">+48 698 125 290</a>
             </div>
             <div class="contact-dept">
-              <p class="contact-dept-label" data-i18n="contact_service">Serwis</p>
+              <p class="contact-dept-label" data-i18n="contact_service">Service</p>
               <a href="mailto:montechserwis@gmail.com">montechserwis@gmail.com</a>
               <a href="tel:+48500601240">+48 500 601 240</a>
             </div>
           </div>
           <div class="contact-address">
-            <p class="contact-dept-label" data-i18n="contact_address">Adres</p>
+            <p class="contact-dept-label" data-i18n="contact_address">Address</p>
             <a href="https://maps.app.goo.gl/WaFb8BMX5vGgM9K17"
               target="_blank"
               rel="noopener noreferrer">
               <span>Aleja Grunwaldzka 487c,<br></span>
               <span>80-309 Gdańsk,<br></span>
-              <span data-i18n="contact_country">Polska</span>
+              <span data-i18n="contact_country">Poland</span>
             </a>
           </div>
         </address>
-        <nav class="footer-nav" aria-label="Nawigacja w stopce">
+        <nav class="footer-nav" aria-label="Footer navigator">
           <p class="footer-brand">Menu</p>
-          <a href="o-nas.html" data-i18n="nav_about">O firmie</a>
-          <a href="uslugi.html" data-i18n="nav_services">Usługi</a>
-          <a href="projekty.html" data-i18n="nav_projects">Projekty</a>
-          <a href="certyfikaty.html" data-i18n="nav_certificate">Certyfikaty</a>
-          <a href="galeria.html" data-i18n="nav_gallery">Galeria</a>
-          <a href="kontakt.html" data-i18n="nav_contact">Kontakt</a>
+          <a href="o-nas.html" data-i18n="nav_about">About us</a>
+          <a href="uslugi.html" data-i18n="nav_services">Services</a>
+          <a href="projekty.html" data-i18n="nav_projects">Projects</a>
+          <a href="certyfikaty.html" data-i18n="nav_certificate">Certificates</a>
+          <a href="galeria.html" data-i18n="nav_gallery">Gallery</a>
+          <a href="kontakt.html" data-i18n="nav_contact">Contact</a>
         </nav>
       </div>
       <p class="footer-bottom">© 2026 Montech Serwis</p>
