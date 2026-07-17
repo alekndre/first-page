@@ -257,3 +257,20 @@ function applyAriaI18n(lang) {
     }
   });
 }
+
+/* ==== Favicon wg motywu systemu ==== */
+const faviconLink = document.querySelector('link[rel="icon"]');
+const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+function syncFavicon() {
+  const oldLink = document.querySelector('link[rel="icon"]');
+  if (!oldLink) return;
+  const newLink = oldLink.cloneNode();
+  newLink.href = systemDark.matches
+    ? 'img/favicon/favicon-dark.png'
+    : 'img/favicon/favicon-light.png';
+  oldLink.replaceWith(newLink);
+}
+
+systemDark.addEventListener('change', syncFavicon);
+syncFavicon();
