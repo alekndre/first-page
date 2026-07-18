@@ -1,0 +1,382 @@
+/* ==== Projects page ==== */
+.projects-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 56px 24px 96px;
+}
+
+.projects-layout {
+  display: grid;
+  /* podział na timeline i opis */
+  grid-template-columns: minmax(220px, 1fr) minmax(0, 2fr);
+  gap: clamp(48px, 7vw, 96px);
+  align-items: start;
+}
+
+/* ==== Timeline ==== */
+.projects-nav {
+  position: sticky;
+  top: 110px;
+}
+
+.projects-nav__heading {
+  margin-bottom: 28px;
+}
+
+.projects-nav__order {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-timeline__list {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* linia osi — u góry wygasa: oś "trwa dalej" w przyszłość */
+.project-timeline__list::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 12px;
+  left: 5px;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--border) 72px);
+}
+
+.project-timeline__item {
+  position: relative;
+  padding-left: 28px;
+}
+
+.project-timeline__item + .project-timeline__item {
+  margin-top: 24px;
+}
+
+/* kropka na osi */
+.project-timeline__item::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 11px;
+  height: 11px;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  background: var(--bg);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+/* ==== Nagłówek "Future projects" — bez kropki, wyżej ==== */
+.project-timeline__future {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 15px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.project-timeline__future .project-timeline__link {
+  color: var(--text-muted);
+}
+
+.project-timeline__future .project-timeline__link:hover {
+  transform: none;          
+  color: var(--text);
+}
+
+/* ==== Etykieta roku na osi ==== */
+.project-timeline__yearmark {
+  position: relative;
+  margin: 30px 0 22px;
+  padding-left: 275px;
+  color: var(--accent);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+/* krótka kreska przecinająca oś na wysokości etykiety */
+.project-timeline__yearmark::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 260px;
+  height: 1px;
+  background: var(--border);
+  opacity: 1;
+}
+
+/* ==== Linki pozycji ==== */
+.project-timeline__link {
+  display: block;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.project-timeline__link:hover,
+.project-timeline__link:focus-visible,
+.project-timeline__link.active {
+  color: var(--text);
+}
+
+.project-timeline__link:hover {
+  transform: translateX(4px);
+}
+
+.project-timeline__item.completed::before,
+.project-timeline__item:has(.project-timeline__link.active)::before {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.project-timeline__item:has(.project-timeline__link.active)
+  .project-timeline__name {
+  color: var(--text);
+}
+
+.project-timeline__year {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+
+.project-timeline__name {
+  display: block;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+/* ==== Zakończenie osi: "Earlier projects" ==== */
+.project-timeline__past {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  margin-top: 34px;
+  color: var(--text-muted);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-timeline__past-dot {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  width: 11px;
+  height: 11px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--bg);
+}
+
+
+/* ==== Project content ==== */
+.projects-list {
+  min-width: 0;
+}
+
+.project {
+  scroll-margin-top: 110px;
+}
+
+.project + .project {
+  margin-top: 56px;
+  padding-top: 36px;
+  border-top: 1px solid var(--border);
+}
+
+.project__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-bottom: 16px;
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project__title {
+  margin: 0;
+  color: var(--text);
+  font-family: "Stardos Stencil", serif;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.05;
+}
+
+.project__description {
+  max-width: 65ch;
+  margin: 20px 0 0;
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+/* ==== Tags ==== */
+.project__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.project__tag {
+  padding: 7px 11px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-muted);
+  /* background: color-mix(in srgb, var(--accent) 6%, transparent); */
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+.project__tag::before {
+  content: "#";
+  margin-right: 2px;
+  color: var(--accent);
+}
+
+/* ==== Gallery ==== */
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.project-gallery__item {
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--card);
+}
+
+.project-gallery__item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-gallery__item:hover img {
+  transform: scale(1.025);
+}
+
+/* ==== Longer project description ==== */
+.project-details {
+  margin-top: 20px;
+}
+
+.project-details__text {
+  position: relative;
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.75;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.project-details__text::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 35%;
+  height: 1.75em;
+  pointer-events: none;
+  background: linear-gradient(to right, transparent, var(--bg));
+}
+
+.project-details__text.expanded {
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+}
+
+.project-details__text.expanded::after {
+  display: none;
+}
+
+.project-details__text p {
+  margin: 0;
+}
+
+.project-details__text p + p {
+  margin-top: 14px;
+}
+
+.project-details__toggle {
+  margin-top: 12px;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.project-details__toggle:hover,
+.project-details__toggle:focus-visible {
+  color: var(--text);
+  border-color: var(--text);
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 900px) {
+  .projects-page {
+    padding-top: 40px;
+  }
+
+  .projects-layout {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .projects-nav {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-page {
+    padding-inline: 20px;
+  }
+
+  .project-gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .project-gallery__item {
+    aspect-ratio: 3 / 4;
+  }
+}
+
+@media (max-width: 400px) {
+  .projects-page {
+    padding-inline: 14px;
+  }
+
+  .project-gallery {
+    gap: 4px;
+  }
+}
