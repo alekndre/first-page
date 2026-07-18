@@ -16,6 +16,7 @@
   --nav-link-hover-bg: rgba(255, 255, 255, 0.12);
 
   --accent: #ef9f27;
+  --accent-muted: rgba(239, 159, 39, 0.5);
 }
 
 /* motyw jasny — Twoja pierwotna paleta */
@@ -35,6 +36,7 @@
   --nav-link-hover-bg: rgba(45, 42, 38, 0.08);
 
   --accent: #c47c10;
+  --accent-muted: rgba(196, 124, 16, 0.5);
 }
 
 :root[data-theme="light"] .logo-img--dark { display: none; }

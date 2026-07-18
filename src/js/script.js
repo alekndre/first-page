@@ -274,3 +274,66 @@ function syncFavicon() {
 
 systemDark.addEventListener('change', syncFavicon);
 syncFavicon();
+
+/* ==== Projects timeline: active project on scroll ==== */
+const projects = document.querySelectorAll(".project");
+const timelineLinks = document.querySelectorAll(".project-timeline__link");
+
+if (projects.length && timelineLinks.length) {
+  const updateActiveProject = () => {
+    let activeProjectId = projects[0].id;
+    const activationPoint = window.innerHeight * 0.35;
+
+    projects.forEach((project) => {
+      const projectTop = project.getBoundingClientRect().top;
+
+      if (projectTop <= activationPoint) {
+        activeProjectId = project.id;
+      }
+    });
+
+    timelineLinks.forEach((link) => {
+      const linkedProjectId = link.getAttribute("href").replace("#", "");
+      const timelineItem = link.closest(".project-timeline__item");
+
+      if (!timelineItem) return; // np. "Future projects" — nie jest pozycją na osi
+
+      link.classList.toggle("active", linkedProjectId === activeProjectId);
+      timelineItem.classList.toggle(
+        "completed",
+        isProjectBeforeOrActive(linkedProjectId, activeProjectId)
+      );
+    });
+  };
+
+  const isProjectBeforeOrActive = (projectId, activeProjectId) => {
+    const projectIds = [...projects].map((project) => project.id);
+
+    return projectIds.indexOf(projectId) <= projectIds.indexOf(activeProjectId);
+  };
+
+  window.addEventListener("scroll", updateActiveProject, { passive: true });
+  window.addEventListener("load", updateActiveProject);
+}
+
+/* ==== Expandable project descriptions ==== */
+const projectDescriptionButtons = document.querySelectorAll(
+  ".project-details__toggle"
+);
+
+projectDescriptionButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const descriptionId = button.getAttribute("aria-controls");
+    const description = document.getElementById(descriptionId);
+    const isExpanded = button.getAttribute("aria-expanded") === "true";
+
+    description.classList.toggle("expanded", !isExpanded);
+    button.setAttribute("aria-expanded", String(!isExpanded));
+
+    // klucz zależny od stanu + tekst z aktualnego języka
+    const key = isExpanded ? "read_more" : "show_less";
+    const lang = document.documentElement.lang || "en";
+    button.dataset.i18n = key;
+    button.textContent = translations[lang][key];
+  });
+});
