@@ -329,6 +329,11 @@ projectDescriptionButtons.forEach((button) => {
 
     description.classList.toggle("expanded", !isExpanded);
     button.setAttribute("aria-expanded", String(!isExpanded));
-    button.textContent = isExpanded ? "Read more" : "Show less";
+
+    // klucz zależny od stanu + tekst z aktualnego języka
+    const key = isExpanded ? "read_more" : "show_less";
+    const lang = document.documentElement.lang || "en";
+    button.dataset.i18n = key;
+    button.textContent = translations[lang][key];
   });
 });
