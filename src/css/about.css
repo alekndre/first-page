@@ -220,20 +220,25 @@
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: grayscale(0);
-  /* opacity: 0.62; */
-  transition:
-    filter 180ms ease,
-    opacity 180ms ease,
-    transform 180ms ease;
+  filter: none;                    /* nadpisuje opacity(0.6) z marquee.css */
+  transition: transform 180ms ease;
+}
+
+.about-partner__logo--light {
+  display: none;
 }
 
 .about-partner:hover img {
-  filter: grayscale(0);
-  opacity: 1;
   transform: scale(1.04);
 }
 
+:root[data-theme="light"] .about-partner__logo--dark {
+  display: none;
+}
+
+:root[data-theme="light"] .about-partner__logo--light {
+  display: block;
+}
 
 /* ==========================================================
    CTA
@@ -301,7 +306,7 @@
    ========================================================== */
 
 :root[data-theme="light"] .about-partner img {
-  filter: grayscale(1) contrast(1.25);
+  filter: grayscale(0) contrast(1.25);
 }
 
 :root[data-theme="light"] .about-partner:hover img {
