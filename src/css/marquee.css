@@ -44,12 +44,18 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
+/* @media (prefers-reduced-motion: reduce) {
   .logo-marquee__track {
     animation: none;
     flex-wrap: wrap;
     justify-content: center;
     width: auto;
+  }
+} */
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee__item[aria-hidden="true"] {
+    display: none;
   }
 }
 
