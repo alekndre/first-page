@@ -1,0 +1,427 @@
+/* ==========================================================
+   ABOUT PAGE
+   ========================================================== */
+
+.about-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px 96px;
+}
+
+
+/* ==========================================================
+   COMMON TYPOGRAPHY
+   ========================================================== */
+
+.about-section-label {
+  margin: 0 0 12px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.about-page h2 {
+  margin: 0;
+  color: var(--text);
+  font-family: 'Stardos Stencil', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1.12;
+}
+
+
+/* ==========================================================
+   COMPANY INTRO
+   ========================================================== */
+
+.about-intro-section {
+  padding: 48px 0 88px;
+  border-bottom: 1px solid var(--border);
+}
+
+.about-intro__header {
+  margin-bottom: 48px;
+}
+
+.about-intro__header h2 {
+  width: 100%;
+  max-width: none;
+}
+
+.about-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(40px, 7vw, 88px);
+  align-items: start;
+}
+
+.about-intro__media {
+  position: relative;
+  min-width: 0;
+}
+
+.about-intro__media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+}
+
+.about-intro__badge {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  display: flex;
+  flex-direction: column;
+  min-width: 145px;
+  padding: 18px 22px;
+  background: var(--accent);
+  color: #14120f;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.24);
+}
+
+.about-intro__badge-label {
+  margin-bottom: 2px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.about-intro__badge strong {
+  font-family: 'Stardos Stencil', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.about-intro__content {
+  padding-top: 4px;
+}
+
+.about-intro__text {
+  display: grid;
+  gap: 18px;
+}
+
+.about-intro__text p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+
+/* ==========================================================
+   APPROACH
+   ========================================================== */
+
+.about-approach {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(40px, 8vw, 100px);
+  margin: 88px 0;
+  padding: clamp(38px, 6vw, 64px);
+  /* overflow: hidden; */
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+/* .about-approach__number {
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
+  color: var(--text);
+  font-family: 'Stardos Stencil', serif;
+  font-size: clamp(100px, 14vw, 170px);
+  line-height: 1;
+  opacity: 0.035;
+  pointer-events: none;
+  user-select: none;
+} */
+
+.about-approach__heading,
+.about-approach__text {
+  position: relative;
+  z-index: 1;
+}
+
+.about-approach__heading h2 {
+  max-width: 14ch;
+}
+
+.about-approach__text {
+  display: flex;
+  align-items: flex-end;
+}
+
+.about-approach__text p {
+  max-width: 50ch;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+
+/* ==========================================================
+   PARTNERS
+   ========================================================== */
+
+.about-partners {
+  padding: 0 0 88px;
+  border-bottom: 1px solid var(--border);
+}
+
+.about-partners__heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.75fr);
+  gap: 48px;
+  align-items: end;
+  margin-bottom: 34px;
+}
+
+.about-partners__description {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.about-partners__grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.about-partner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 78px;
+  padding: 16px 14px;
+  overflow: hidden;
+  background: var(--card);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.about-partner img {
+  display: block;
+  max-width: 96px;
+  max-height: 30px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(0);
+  /* opacity: 0.62; */
+  transition:
+    filter 180ms ease,
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.about-partner:hover img {
+  filter: grayscale(0);
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+
+/* ==========================================================
+   CTA
+   ========================================================== */
+
+.about-cta {
+  display: flex;
+  gap: 48px;
+  align-items: flex-end;
+  justify-content: space-between;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  padding: 40px;
+}
+
+.about-cta__content {
+  max-width: 650px;
+}
+
+.about-cta__content h2 {
+  margin-bottom: 18px;
+}
+
+.about-cta__content > p:last-child {
+  max-width: 55ch;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.about-cta__link {
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 30px;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 190px;
+  padding: 14px 18px;
+  border-radius: 8px;
+  color: #14120f;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition:
+    background-color .25s ease,
+    color .25s ease,
+    border-color .25s ease,
+    transform .25s ease;
+}
+
+.about-cta__link:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--text);
+  transform: translateY(-2px);
+}
+
+
+/* ==========================================================
+   LIGHT THEME PARTNER LOGOS
+   ========================================================== */
+
+:root[data-theme="light"] .about-partner img {
+  filter: grayscale(1) contrast(1.25);
+}
+
+:root[data-theme="light"] .about-partner:hover img {
+  filter: grayscale(0) contrast(1.1);
+}
+
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 900px) {
+  .about-intro {
+    gap: 48px;
+  }
+
+  .about-partners__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 760px) {
+  .about-page {
+    padding: 0 20px 72px;
+  }
+
+  .about-intro-section {
+    padding: 56px 0 64px;
+  }
+
+  .about-intro__header {
+    margin-bottom: 32px;
+  }
+
+  .about-intro {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .about-intro__media {
+    max-width: 560px;
+  }
+
+  .about-intro__badge {
+    top: 16px;
+    left: 16px;
+    min-width: 125px;
+    padding: 15px 18px;
+  }
+
+  .about-intro__badge strong {
+    font-size: 1.65rem;
+  }
+
+  .about-approach {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin: 64px 0;
+    padding: 32px 24px;
+  }
+
+  .about-approach__heading h2 {
+    max-width: 16ch;
+  }
+
+  .about-approach__text p {
+    font-size: 16px;
+  }
+
+  .about-partners {
+    padding-bottom: 64px;
+  }
+
+  .about-partners__heading {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-bottom: 28px;
+  }
+
+  .about-partners__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-partner {
+    min-height: 84px;
+    padding: 16px;
+  }
+
+  .about-partner img {
+    max-width: 100px;
+    max-height: 30px;
+  }
+
+  .about-cta {
+    align-items: stretch;
+    flex-direction: column;
+    padding-top: 64px;
+  }
+
+  .about-cta__link {
+    width: 100%;
+  }
+}
+
+
+/* ==========================================================
+   SMALL MOBILE
+   ========================================================== */
+
+@media (max-width: 420px) {
+  .about-partners__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-partner {
+    min-height: 78px;
+  }
+}

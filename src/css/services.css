@@ -166,6 +166,7 @@ img.img-flip {
   border-radius: 8px;
   overflow: hidden;
   scroll-margin-top: 96px;
+  background-color: var(--card);
 }
 
 .service-details__intro,

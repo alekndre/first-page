@@ -136,6 +136,7 @@ const translations = {
     services_title: "Usługi",
     services_intro: "Realizujemy przemysłowe instalacje rurowe, montaż urządzeń, prefabrykację stalową oraz modernizacje dla zakładów przemysłowych i jednostek pływających.",
     services_navigation_label: "Usługi",
+    service_description_label: "Opis usługi",
 
     services_grid_1: "Rurociągi przemysłowe",
     services_grid_2: "Media technologiczne",
@@ -213,6 +214,34 @@ const translations = {
     service_9_scope_2: "Wyposażenie stref SPA i pokładów",
     service_9_scope_3: "Łóżka typu Cabana",
     service_9_scope_4: "Kabiny prysznicowe ze stali nierdzewnej",
+
+    /* about */
+        /* about page */
+
+    about_page_kicker: "O firmie",
+    about_page_lead: "Ponad 20 lat doświadczenia w realizacji projektów dla przemysłu i sektora morskiego.",
+    about_since: "Od",
+
+    about_company_label: "Montech Serwis",
+    about_company_title: "Doświadczenie budowane podczas realnych projektów",
+
+    about_company_paragraph_1: "Montech Serwis został założony w Gdańsku w 2001 roku. Firma powstała w oparciu o szerokie doświadczenie w zakresie budowy i napraw statków oraz wiedzę zdobytą w sektorze naftowo-gazowym.",
+    about_company_paragraph_2: "Na przestrzeni lat realizowaliśmy projekty dla przemysłu oraz sektora morskiego, współpracując z uznanymi firmami i wykonując zarówno nowe instalacje, jak i prace modernizacyjne oraz serwisowe.",
+    about_company_paragraph_3: "Własne zaplecze warsztatowe oraz wykwalifikowany zespół pozwalają nam prowadzić realizacje od przygotowania i prefabrykacji aż po montaż w zakładzie klienta lub na pokładzie jednostki.",
+    about_company_paragraph_4: "Zakres i organizację prac dostosowujemy do wymagań technicznych oraz warunków konkretnego projektu. Stawiamy na rzetelne wykonanie, sprawną współpracę i dobór rozwiązań odpowiadających potrzebom klienta.",
+
+    about_approach_label: "Nasze podejście",
+    about_approach_title: "Współpraca oparta na doświadczeniu i odpowiedzialności",
+    about_approach_text: "Wierzymy, że dobrze wykonany projekt wymaga wiedzy technicznej, dokładności oraz sprawnej współpracy z klientem. Dlatego do każdego zlecenia podchodzimy indywidualnie, uwzględniając jego wymagania, harmonogram i warunki realizacji.",
+
+    about_partners_label: "Współpraca",
+    about_partners_title: "Marki, z którymi pracujemy",
+    about_partners_description: "W naszych realizacjach wykorzystujemy rozwiązania i urządzenia uznanych producentów działających w sektorze przemysłowym i morskim.",
+
+    about_cta_label: "Współpraca",
+    about_cta_title: "Masz projekt do zrealizowania?",
+    about_cta_text: "Skontaktuj się z naszym zespołem, aby omówić zakres techniczny i wymagania planowanej realizacji.",
+    about_cta_button: "Skontaktuj się",
   },
   en: {
     nav_about: "About us",
@@ -350,6 +379,7 @@ const translations = {
     services_title: "Services",
     services_intro: "We deliver industrial piping systems, equipment installation, steel prefabrication and modernization projects for industrial facilities and marine vessels.",
     services_navigation_label: "Services",
+    service_description_label: "About the service",
 
     services_grid_1: "Industrial piping",
     services_grid_2: "Process utility systems",
@@ -428,5 +458,32 @@ const translations = {
     service_9_scope_3: "Cabana beds",
     service_9_scope_4: "Stainless steel shower cabins",
 
+    /* about */
+        /* about page */
+
+    about_page_kicker: "About the company",
+    about_page_lead: "Over 20 years of experience in industrial and marine projects.",
+
+    about_since: "Since",
+    about_company_label: "Montech Serwis",
+    about_company_title: "Experience built through real projects",
+
+    about_company_paragraph_1: "Montech Serwis was established in Gdańsk in 2001. The company was founded on extensive experience in shipbuilding and ship repair, as well as knowledge gained in the oil and gas sector.",
+    about_company_paragraph_2: "Over the years, we have completed projects for the industrial and marine sectors, working with recognised companies and delivering both new installations and modernisation and maintenance works.",
+    about_company_paragraph_3: "Our workshop facilities and qualified team allow us to carry out projects from preparation and prefabrication through to installation at the customer's facility or on board a vessel.",
+    about_company_paragraph_4: "We adapt the scope and organisation of our work to the technical requirements and conditions of each project. Our priority is reliable execution, effective cooperation and selecting solutions suited to the customer's needs.",
+
+    about_approach_label: "Our approach",
+    about_approach_title: "Cooperation based on experience and responsibility",
+    about_approach_text: "We believe that a well-executed project requires technical knowledge, precise workmanship and efficient cooperation with the customer. We therefore approach every assignment individually, taking into account its requirements, schedule and working conditions.",
+
+    about_partners_label: "Cooperation",
+    about_partners_title: "Brands we work with",
+    about_partners_description: "Our projects involve solutions and equipment supplied by recognised manufacturers from the industrial and marine sectors.",
+
+    about_cta_label: "Cooperation",
+    about_cta_title: "Do you have a project to complete?",
+    about_cta_text: "Contact our team to discuss the technical scope and requirements of your project.",
+    about_cta_button: "Contact us",
   },
 };
