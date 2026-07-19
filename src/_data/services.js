@@ -4,7 +4,8 @@ module.exports = [
     number: "01",
     title: "Industrial piping",
     titleKey: "services_grid_1",
-    image: "img/pipelines2022/p11.webp",
+    image: "img/pipelines2022/p5.webp",
+    imageClass: "img-flip",
   },
   {
     id: "process-media",
@@ -33,6 +34,7 @@ module.exports = [
     title: "Industrial equipment installation",
     titleKey: "services_grid_5",
     image: "img/piec202301/p7.webp",
+    imageClass: "img-top",
   },
   {
     id: "equipment-relocation",
@@ -40,6 +42,7 @@ module.exports = [
     title: "Industrial equipment relocation",
     titleKey: "services_grid_6",
     image: "img/sweden202205/s7.webp",
+    imageClass: "img-top",
   },
   {
     id: "welding-prefabrication",

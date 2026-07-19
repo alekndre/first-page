@@ -6,102 +6,655 @@ pageStyles:
   - page
   - services
 ---
-<section class="services-overview" aria-labelledby="services-title">
 
-  <header class="services-overview__header">
+<main class="projects-page">
+  <div class="projects-layout">
 
+  <section class="page-hero">
+    <span class="zone-ghost" aria-hidden="true">02</span>
     <p class="zone-kicker" data-i18n="services_eyebrow">Our services</p>
-    <h1 id="services-title" data-i18n="services_title">Services</h1>
-    <!-- <p class="services-overview__lead" data-i18n="services_intro">
-      We deliver industrial piping systems, equipment installation,
-      steel prefabrication and modernization projects for industrial
-      facilities and marine vessels. -->
-    </p>
-  </header>
+    <h1 data-i18n="services_title">Services</h1>
+  </section>
 
-  <nav class="services-grid" aria-label="Services">
+  <section class="services-overview" aria-labelledby="services-title">
 
-    {% for service in services %}
-    <a class="service-tile" href="#{{ service.id }}">
-      <img class="service-tile__bg" src="{{ service.image }}" alt="" loading="lazy">
-      <span class="service-tile__number">{{ service.number }}</span>
-      <span class="service-tile__row">
-        <span class="service-tile__title" data-i18n="{{ service.titleKey }}">{{ service.title }}</span>
-        <span class="service-tile__arrow" aria-hidden="true">→</span>
-      </span>
-    </a>
-    {% endfor %}
-  </nav>
-</section>
+    <nav class="services-grid" aria-label="Services">
+      {% for service in services %}
+      <a class="service-tile" href="#{{ service.id }}">
+        <span class="service-tile__media">
+          <img class="service-tile__bg {{ service.imageClass }}" src="{{ service.image }}" alt="" loading="lazy">
+        </span>
+        <span class="service-tile__caption">
+          <span class="service-tile__number">{{ service.number }}</span>
+          <span class="service-tile__title" data-i18n="{{ service.titleKey }}">{{ service.title }}</span>
+          <span class="service-tile__arrow" aria-hidden="true">→</span>
+        </span>
+      </a>
+      {% endfor %}
+    </nav>
+  </section>
 
-<section class="service-details" id="industrial-piping">
+  <!-- ====================== 01 INDUSTRIAL PIPING ====================== -->
+  <section class="service-details" id="industrial-piping">
 
-  <div class="service-details__intro">
+    <div class="service-details__intro">
+      <div class="service-details__heading">
+        <span class="service-details__number">01</span>
+        <h2 class="service-details__title" data-i18n="service_1_title">Industrial piping</h2>
+      </div>
 
-    <div class="service-details__heading">
-      <span class="service-details__number">01</span>
-      <h2 class="service-details__title" data-i18n="service_1_title">Industrial piping</h2>
+      <div class="service-details__description">
+        <p class="service-details__label" data-i18n="service_description_label">About the service</p>
+        <p data-i18n="service_1_description">
+          We fabricate and install industrial piping systems for technological processes and utility media.
+        </p>
+      </div>
     </div>
 
-    <div class="service-details__description">
-      <p class="service-details__label" data-i18n="service_description_label">About the service</p>
-      <p data-i18n="service_1_description">
-        We fabricate and install industrial piping systems for technological processes and utility media.
-      </p>
+    <div class="service-details__scope">
+      <p class="service-details__label" data-i18n="service_scope_label">Scope of work</p>
+      <ul class="service-details__scope-list">
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 3c-1.4 1.8-1.4 3.2 0 5s1.4 3.2 0 5"/>
+              <path d="M13 3c-1.4 1.8-1.4 3.2 0 5s1.4 3.2 0 5"/>
+              <path d="M4 19h15"/>
+              <path d="M6 16h11"/>
+            </svg>
+          </span>
+          <span data-i18n="service_1_scope_1">Steam and condensate piping</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3.5c3.4 4.1 5.8 7 5.8 9.7a5.8 5.8 0 1 1-11.6 0c0-2.7 2.4-5.6 5.8-9.7z"/>
+            </svg>
+          </span>
+          <span data-i18n="service_1_scope_2">Thermal oil systems</span>
+        </li>
+        <li>
+          <span class="service-details__icon service-details__icon--text" aria-hidden="true">N₂</span>
+          <span data-i18n="service_1_scope_3">Nitrogen installations</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 8h10a2.5 2.5 0 1 0-2.5-2.5"/>
+              <path d="M3 12h14a2.5 2.5 0 1 1-2.5 2.5"/>
+              <path d="M3 16h6a2 2 0 1 1-2 2"/>
+            </svg>
+          </span>
+          <span data-i18n="service_1_scope_4">Compressed air systems</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 8h8a5 5 0 0 1 5 5v8"/>
+              <path d="M3 12h6a1 1 0 0 1 1 1v8"/>
+            </svg>
+          </span>
+          <span data-i18n="service_1_scope_5">Process and utility piping</span>
+        </li>
+      </ul>
     </div>
 
+    <figure class="service-details__media">
+      <img src="/img/pipelines2022/p12.webp" alt="Industrial piping installation" loading="lazy">
+    </figure>
+
+  </section>
+
+  <!-- ====================== 02 PROCESS MEDIA ====================== -->
+  <section class="service-details" id="process-media">
+
+    <div class="service-details__intro">
+      <div class="service-details__heading">
+        <span class="service-details__number">02</span>
+        <h2 class="service-details__title" data-i18n="service_2_title">Process utility systems</h2>
+      </div>
+
+      <div class="service-details__description">
+        <p class="service-details__label" data-i18n="service_description_label">About the service</p>
+        <p data-i18n="service_2_description">
+          We build and connect process utility systems that supply production lines — from nitrogen reduction stations and buffer tanks to water treatment and process cooling.
+        </p>
+      </div>
+    </div>
+
+    <div class="service-details__scope">
+      <p class="service-details__label" data-i18n="service_scope_label">Scope of work</p>
+      <ul class="service-details__scope-list">
+        <li>
+          <span class="service-details__icon service-details__icon--text" aria-hidden="true">N₂</span>
+          <span data-i18n="service_2_scope_1">Nitrogen reduction stations</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="7" y="3" width="10" height="18" rx="4"/>
+              <path d="M7 9h10"/>
+              <path d="M7 15h10"/>
+            </svg>
+          </span>
+          <span data-i18n="service_2_scope_2">Buffer tanks</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="13" r="8"/>
+              <path d="M12 13l3.5-3.5"/>
+              <path d="M12 5v2"/>
+            </svg>
+          </span>
+          <span data-i18n="service_2_scope_3">Vacuum systems</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3.5c3.4 4.1 5.8 7 5.8 9.7a5.8 5.8 0 1 1-11.6 0c0-2.7 2.4-5.6 5.8-9.7z"/>
+              <path d="M9 14h6"/>
+            </svg>
+          </span>
+          <span data-i18n="service_2_scope_4">Water treatment &amp; process cooling</span>
+        </li>
+      </ul>
+    </div>
+
+    <figure class="service-details__media">
+      <img src="img/piec202301/p2.webp" alt="Process utility installations" loading="lazy">
+    </figure>
+
+  </section>
+
+  <!-- ====================== 03 INDUSTRIAL BOILER ROOMS ====================== -->
+  <section class="service-details" id="industrial-boiler-rooms">
+
+    <div class="service-details__intro">
+      <div class="service-details__heading">
+        <span class="service-details__number">03</span>
+        <h2 class="service-details__title" data-i18n="service_3_title">Industrial boiler rooms</h2>
+      </div>
+
+      <div class="service-details__description">
+        <p class="service-details__label" data-i18n="service_description_label">About the service</p>
+        <p data-i18n="service_3_description">
+          We deliver complete industrial boiler houses — from installing heating and thermal oil boilers to steam and condensate piping and distribution manifolds supplying production equipment.
+        </p>
+      </div>
+    </div>
+
+    <div class="service-details__scope">
+      <p class="service-details__label" data-i18n="service_scope_label">Scope of work</p>
+      <ul class="service-details__scope-list">
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3c2.6 3.6 5 6.2 5 9.7a5 5 0 0 1-10 0c0-1.5.5-2.9 1.4-4.3.5 1 1.3 1.8 2.1 2.2C10 8 10.8 5.4 12 3z"/>
+            </svg>
+          </span>
+          <span data-i18n="service_3_scope_1">Heating boiler installation</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3.5c3.4 4.1 5.8 7 5.8 9.7a5.8 5.8 0 1 1-11.6 0c0-2.7 2.4-5.6 5.8-9.7z"/>
+            </svg>
+          </span>
+          <span data-i18n="service_3_scope_2">Thermal oil boilers &amp; systems</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 3c-1.4 1.8-1.4 3.2 0 5s1.4 3.2 0 5"/>
+              <path d="M13 3c-1.4 1.8-1.4 3.2 0 5s1.4 3.2 0 5"/>
+              <path d="M4 19h15"/>
+              <path d="M6 16h11"/>
+            </svg>
+          </span>
+          <span data-i18n="service_3_scope_3">Steam and condensate piping</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 13h16"/>
+              <path d="M8 13V6"/>
+              <path d="M12 13V6"/>
+              <path d="M16 13V6"/>
+              <path d="M12 13v8"/>
+            </svg>
+          </span>
+          <span data-i18n="service_3_scope_4">Manifolds &amp; supply networks</span>
+        </li>
+      </ul>
+    </div>
+
+    <figure class="service-details__media">
+      <img src="img/ostroda202307/o8.webp" alt="Industrial boiler house" loading="lazy">
+    </figure>
+
+  </section>
+
+  <!-- ====================== 04 HEATING SYSTEMS ====================== -->
+  <section class="service-details" id="heating-systems">
+
+    <div class="service-details__intro">
+      <div class="service-details__heading">
+        <span class="service-details__number">04</span>
+        <h2 class="service-details__title" data-i18n="service_4_title">Heating systems</h2>
+      </div>
+
+      <div class="service-details__description">
+        <p class="service-details__label" data-i18n="service_description_label">About the service</p>
+        <p data-i18n="service_4_description">
+          We install heating systems in industrial facilities — both welded and press-fitting technologies, including Geberit Mapress.
+        </p>
+      </div>
+    </div>
+
+    <div class="service-details__scope">
+      <p class="service-details__label" data-i18n="service_scope_label">Scope of work</p>
+      <ul class="service-details__scope-list">
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M3 12h5"/>
+              <path d="M16 12h5"/>
+            </svg>
+          </span>
+          <span data-i18n="service_4_scope_1">Geberit Mapress press-fit systems</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 6v12"/>
+              <path d="M9.5 6v12"/>
+              <path d="M14 6v12"/>
+              <path d="M18.5 6v12"/>
+              <path d="M3.5 9h17"/>
+            </svg>
+          </span>
+          <span data-i18n="service_4_scope_2">Welded heating pipelines</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 6v4"/>
+              <path d="M15 6v4"/>
+              <path d="M7 10h10v3a5 5 0 0 1-10 0z"/>
+              <path d="M12 18v3"/>
+            </svg>
+          </span>
+          <span data-i18n="service_4_scope_3">Heating equipment connections</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 11a8 8 0 1 0-2.3 6.2"/>
+              <path d="M20 5v6h-6"/>
+            </svg>
+          </span>
+          <span data-i18n="service_4_scope_4">Upgrades of existing systems</span>
+        </li>
+      </ul>
+    </div>
+
+    <figure class="service-details__media">
+      <img src="img/mapress/m4.webp" alt="Heating system installation" loading="lazy">
+    </figure>
+
+  </section>
+
+  <!-- ====================== 05 EQUIPMENT INSTALLATION ====================== -->
+  <section class="service-details" id="equipment-installation">
+
+    <div class="service-details__intro">
+      <div class="service-details__heading">
+        <span class="service-details__number">05</span>
+        <h2 class="service-details__title" data-i18n="service_5_title">Industrial equipment installation</h2>
+      </div>
+
+      <div class="service-details__description">
+        <p class="service-details__label" data-i18n="service_description_label">About the service</p>
+        <p data-i18n="service_5_description">
+          We position, align and connect industrial equipment — from metallurgical furnaces to tanks and production line machinery — including full utility hook-up.
+        </p>
+      </div>
+    </div>
+
+    <div class="service-details__scope">
+      <p class="service-details__label" data-i18n="service_scope_label">Scope of work</p>
+      <ul class="service-details__scope-list">
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="7"/>
+              <path d="M12 2v4"/>
+              <path d="M12 18v4"/>
+              <path d="M2 12h4"/>
+              <path d="M18 12h4"/>
+            </svg>
+          </span>
+          <span data-i18n="service_5_scope_1">Equipment positioning &amp; alignment</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 8h8a5 5 0 0 1 5 5v8"/>
+              <path d="M3 12h6a1 1 0 0 1 1 1v8"/>
+            </svg>
+          </span>
+          <span data-i18n="service_5_scope_2">Process utility connections</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="7" y="3" width="10" height="18" rx="4"/>
+              <path d="M7 9h10"/>
+              <path d="M7 15h10"/>
+            </svg>
+          </span>
+          <span data-i18n="service_5_scope_3">Tank &amp; vessel installation</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 3.5v2.5"/>
+              <path d="M12 18v2.5"/>
+              <path d="M3.5 12H6"/>
+              <path d="M18 12h2.5"/>
+              <path d="M6 6l1.8 1.8"/>
+              <path d="M16.2 16.2L18 18"/>
+              <path d="M6 18l1.8-1.8"/>
+              <path d="M16.2 7.8L18 6"/>
+            </svg>
+          </span>
+          <span data-i18n="service_5_scope_4">Production support systems</span>
+        </li>
+      </ul>
+    </div>
+
+    <figure class="service-details__media">
+      <img src="img/sweden202205/s14.webp" alt="Industrial equipment installation" loading="lazy">
+    </figure>
+
+  </section>
+
+  <!-- ====================== 06 EQUIPMENT RELOCATION ====================== -->
+  <section class="service-details" id="equipment-relocation">
+
+    <div class="service-details__intro">
+      <div class="service-details__heading">
+        <span class="service-details__number">06</span>
+        <h2 class="service-details__title" data-i18n="service_6_title">Industrial equipment relocation</h2>
+      </div>
+
+      <div class="service-details__description">
+        <p class="service-details__label" data-i18n="service_description_label">About the service</p>
+        <p data-i18n="service_6_description">
+          We dismantle, relocate and recommission heavy industrial equipment — in close coordination with crane operators, including components weighing tens of tons.
+        </p>
+      </div>
+    </div>
+
+    <div class="service-details__scope">
+      <p class="service-details__label" data-i18n="service_scope_label">Scope of work</p>
+      <ul class="service-details__scope-list">
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3l7 4v10l-7 4-7-4V7z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </span>
+          <span data-i18n="service_6_scope_1">Staged equipment dismantling</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="4" r="1.5"/>
+              <path d="M12 5.5V12a4.5 4.5 0 0 0 9 0"/>
+              <path d="M18.5 12H21"/>
+            </svg>
+          </span>
+          <span data-i18n="service_6_scope_2">Crane operation coordination</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"/>
+              <path d="M15 8l4 4-4 4"/>
+              <path d="M9 8l-4 4 4 4"/>
+            </svg>
+          </span>
+          <span data-i18n="service_6_scope_3">Installation at the new location</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 8h8a5 5 0 0 1 5 5v8"/>
+              <path d="M3 12h6a1 1 0 0 1 1 1v8"/>
+            </svg>
+          </span>
+          <span data-i18n="service_6_scope_4">Reconnection of process systems</span>
+        </li>
+      </ul>
+    </div>
+
+    <figure class="service-details__media">
+      <img src="img/sweden202205/s9.webp" alt="Heavy equipment relocation" loading="lazy">
+    </figure>
+
+  </section>
+
+  <!-- ====================== 07 WELDING AND PREFABRICATION ====================== -->
+  <section class="service-details" id="welding-prefabrication">
+
+    <div class="service-details__intro">
+      <div class="service-details__heading">
+        <span class="service-details__number">07</span>
+        <h2 class="service-details__title" data-i18n="service_7_title">Welding and prefabrication</h2>
+      </div>
+
+      <div class="service-details__description">
+        <p class="service-details__label" data-i18n="service_description_label">About the service</p>
+        <p data-i18n="service_7_description">
+          In our Gdańsk workshop we prefabricate steel components and weld piping — in carbon and stainless steel, including series production.
+        </p>
+      </div>
+    </div>
+
+    <div class="service-details__scope">
+      <p class="service-details__label" data-i18n="service_scope_label">Scope of work</p>
+      <ul class="service-details__scope-list">
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2L5 13h6l-1 9 8-11h-6z"/>
+            </svg>
+          </span>
+          <span data-i18n="service_7_scope_1">Pipeline &amp; structural welding</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a4 4 0 0 0-5.6 5L4 16.4V20h3.6l5.1-5.1a4 4 0 0 0 5-5.6l-2.9 2.9-2.1-2.1z"/>
+            </svg>
+          </span>
+          <span data-i18n="service_7_scope_2">Workshop prefabrication</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3l9 5-9 5-9-5z"/>
+              <path d="M3 13.5l9 5 9-5"/>
+            </svg>
+          </span>
+          <span data-i18n="service_7_scope_3">Stainless steel components</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="13" width="8" height="8" rx="1"/>
+              <rect x="13" y="13" width="8" height="8" rx="1"/>
+              <rect x="8" y="3" width="8" height="8" rx="1"/>
+            </svg>
+          </span>
+          <span data-i18n="service_7_scope_4">Series production of outfitting elements</span>
+        </li>
+      </ul>
+    </div>
+
+    <figure class="service-details__media">
+      <!-- PLACEHOLDER: docelowo zdjęcie warsztatowe / spawalnicze -->
+      <img src="img/piec202301/p8.webp" alt="Welding and prefabrication" loading="lazy">
+    </figure>
+
+  </section>
+
+  <!-- ====================== 08 STEEL STRUCTURES ====================== -->
+  <section class="service-details" id="steel-structures">
+
+    <div class="service-details__intro">
+      <div class="service-details__heading">
+        <span class="service-details__number">08</span>
+        <h2 class="service-details__title" data-i18n="service_8_title">Steel structures</h2>
+      </div>
+
+      <div class="service-details__description">
+        <p class="service-details__label" data-i18n="service_description_label">About the service</p>
+        <p data-i18n="service_8_description">
+          We fabricate and erect steel structures — platforms, pipe supports and racks, and stainless steel enclosures.
+        </p>
+      </div>
+    </div>
+
+    <div class="service-details__scope">
+      <p class="service-details__label" data-i18n="service_scope_label">Scope of work</p>
+      <ul class="service-details__scope-list">
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="4" width="16" height="16" rx="1"/>
+              <path d="M4 12h16"/>
+              <path d="M12 4v16"/>
+            </svg>
+          </span>
+          <span data-i18n="service_8_scope_1">Platform structures</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 4h12"/>
+              <path d="M6 20h12"/>
+              <path d="M12 4v16"/>
+            </svg>
+          </span>
+          <span data-i18n="service_8_scope_2">Pipe supports &amp; racks</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="4" width="16" height="16" rx="2"/>
+              <path d="M8 16l8-8"/>
+            </svg>
+          </span>
+          <span data-i18n="service_8_scope_3">Stainless steel enclosures</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3l7 4v10l-7 4-7-4V7z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </span>
+          <span data-i18n="service_8_scope_4">On-site assembly</span>
+        </li>
+      </ul>
+    </div>
+
+    <figure class="service-details__media">
+      <!-- PLACEHOLDER: docelowo zdjęcie konstrukcji/podestów -->
+      <img src="img/cabana2021/c4.webp" alt="Steel structures" loading="lazy">
+    </figure>
+
+  </section>
+
+  <!-- ====================== 09 SHIP OUTFITTING AND MODERNIZATION ====================== -->
+  <section class="service-details" id="marine-services">
+
+    <div class="service-details__intro">
+      <div class="service-details__heading">
+        <span class="service-details__number">09</span>
+        <h2 class="service-details__title" data-i18n="service_9_title">Ship outfitting and modernization</h2>
+      </div>
+
+      <div class="service-details__description">
+        <p class="service-details__label" data-i18n="service_description_label">About the service</p>
+        <p data-i18n="service_9_description">
+          We take part in cruise ship refurbishments — from workshop prefabrication of outfitting elements to onboard installation, including SPA areas.
+        </p>
+      </div>
+    </div>
+
+    <div class="service-details__scope">
+      <p class="service-details__label" data-i18n="service_scope_label">Scope of work</p>
+      <ul class="service-details__scope-list">
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="5" r="2"/>
+              <path d="M12 7v13"/>
+              <path d="M5 13a7 7 0 0 0 14 0"/>
+              <path d="M9 10h6"/>
+            </svg>
+          </span>
+          <span data-i18n="service_9_scope_1">Onboard installation works</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>
+              <path d="M3 15c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>
+            </svg>
+          </span>
+          <span data-i18n="service_9_scope_2">SPA &amp; deck area outfitting</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 7v11"/>
+              <path d="M3 14h18v4"/>
+              <path d="M8 14v-3h10a3 3 0 0 1 3 3"/>
+            </svg>
+          </span>
+          <span data-i18n="service_9_scope_3">Cabana beds</span>
+        </li>
+        <li>
+          <span class="service-details__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 6a4 4 0 0 1 8 0v2"/>
+              <path d="M4 11h16"/>
+              <path d="M8 15v1"/>
+              <path d="M12 15v1"/>
+              <path d="M16 15v1"/>
+              <path d="M10 19v1"/>
+              <path d="M14 19v1"/>
+            </svg>
+          </span>
+          <span data-i18n="service_9_scope_4">Stainless steel shower cabins</span>
+        </li>
+      </ul>
+    </div>
+
+    <figure class="service-details__media">
+      <img src="img/marella202201/2m4.webp" alt="Cruise ship outfitting" loading="lazy">
+    </figure>
+
+  </section>
+
+
   </div>
-
-  <div class="service-details__scope">
-    <p class="service-details__label" data-i18n="service_scope_label">Scope of work</p>
-    <ul class="service-details__scope-list">
-      <li>
-        <span class="service-details__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M8 3c-1.4 1.8-1.4 3.2 0 5s1.4 3.2 0 5"/>
-            <path d="M13 3c-1.4 1.8-1.4 3.2 0 5s1.4 3.2 0 5"/>
-            <path d="M4 19h15"/>
-            <path d="M6 16h11"/>
-          </svg>
-        </span>
-        <span data-i18n="service_1_scope_1">Steam and condensate piping</span>
-      </li>
-      <li>
-        <span class="service-details__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 3.5c3.4 4.1 5.8 7 5.8 9.7a5.8 5.8 0 1 1-11.6 0c0-2.7 2.4-5.6 5.8-9.7z"/>
-          </svg>
-        </span>
-        <span data-i18n="service_1_scope_2">Thermal oil systems</span>
-      </li>
-      <li>
-        <span class="service-details__icon service-details__icon--text" aria-hidden="true">N₂</span>
-        <span data-i18n="service_1_scope_3">Nitrogen installations</span>
-      </li>
-      <li>
-        <span class="service-details__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 8h10a2.5 2.5 0 1 0-2.5-2.5"/>
-            <path d="M3 12h14a2.5 2.5 0 1 1-2.5 2.5"/>
-            <path d="M3 16h6a2 2 0 1 1-2 2"/>
-          </svg>
-        </span>
-        <span data-i18n="service_1_scope_4">Compressed air systems</span>
-      </li>
-      <li>
-        <span class="service-details__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 8h8a5 5 0 0 1 5 5v8"/>
-            <path d="M3 12h6a1 1 0 0 1 1 1v8"/>
-          </svg>
-        </span>
-        <span data-i18n="service_1_scope_5">Process and utility piping</span>
-      </li>
-    </ul>
-  </div>
-
-  <figure class="service-details__media">
-    <img src="/img/pipelines2022/p5.webp" alt="Industrial piping installation" loading="lazy">
-  </figure>
-
-</section>
+</main>
