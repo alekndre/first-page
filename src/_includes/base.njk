@@ -19,7 +19,8 @@
     {% for style in pageStyles %}<link rel="stylesheet" href="css/{{ style }}.css">
     {% endfor %}
 
-    <link rel="icon" type="image/png" href="img/favicon/favicon-light.png" sizes="96x96">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-light.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-dark.png" media="(prefers-color-scheme: dark)">
     <link rel="shortcut icon" href="img/favicon/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
     <link rel="manifest" href="img/favicon/site.webmanifest">
