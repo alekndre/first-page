@@ -17,6 +17,10 @@
 
   --accent: #ef9f27;
   --accent-muted: rgba(239, 159, 39, 0.5);
+
+  --lin_grad1: rgba(10, 10, 10, 0.88);
+  --lin_grad2: rgba(10, 10, 10, 0.55);
+  --lin_grad3: rgba(10, 10, 10, 0.35);
 }
 
 /* motyw jasny — Twoja pierwotna paleta */
@@ -37,6 +41,10 @@
 
   --accent: #c47c10;
   --accent-muted: rgba(196, 124, 16, 0.5);
+
+  --lin_grad1: rgb(243, 241, 236, 0.88);
+  --lin_grad2: rgb(243, 241, 236, 0.55);
+  --lin_grad3: rgb(243, 241, 236, 0.33);
 }
 
 :root[data-theme="light"] .logo-img--dark { display: none; }

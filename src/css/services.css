@@ -1,0 +1,329 @@
+/* ==== SERVICES: przegląd oferty ==== */
+
+.services-overview {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 36px 24px 48px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+/* ---- kafelek: zdjęcie + pasek z podpisem ---- */
+
+.service-tile {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  color: var(--text);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--card);
+}
+
+/* zdjęcie */
+
+.service-tile__media {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+}
+
+.service-tile__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 450ms cubic-bezier(0.22, 0.9, 0.3, 1);
+}
+
+/* pasek z podpisem */
+.service-tile__caption {
+  flex: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 4px 16px 4px;
+  border-top: 1px solid var(--border);
+}
+
+.service-tile__number {
+  color: var(--accent);
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+}
+
+.service-tile__title {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.service-tile__arrow {
+  color: var(--text-muted);
+  font-size: 16px;
+  transition: transform 200ms ease, color 200ms ease;
+}
+
+/* linia akcentu na dolnej krawędzi kafelka */
+.service-tile::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 320ms cubic-bezier(0.22, 0.9, 0.3, 1);
+}
+
+/* hover / focus */
+.service-tile:hover .service-tile__bg,
+.service-tile:focus-visible .service-tile__bg {
+  transform: scale(1.07);
+}
+
+.service-tile:hover::after,
+.service-tile:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.service-tile:hover .service-tile__arrow,
+.service-tile:focus-visible .service-tile__arrow {
+  transform: translateX(5px);
+  color: var(--accent);
+}
+
+.service-tile:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+img.img-top {
+  object-position: 50% 15%;
+}
+
+img.img-flip {
+  transform: scaleX(-1);
+}
+
+.service-tile__bg.img-flip {
+  transform: scaleX(-1.02) scaleY(1.02);
+}
+
+.service-tile:hover .service-tile__bg.img-flip,
+.service-tile:focus-visible .service-tile__bg.img-flip {
+  transform: scaleX(-1.07) scaleY(1.07);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-tile__bg,
+  .service-tile::after,
+  .service-tile__arrow {
+    transition: none;
+  }
+}
+
+@media (max-width: 800px) {
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .services-overview {
+    padding: 28px 20px 40px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-tile__media {
+    height: 150px;
+  }
+}
+
+/* ==== SERVICES: szczegóły usługi ==== */
+
+.service-details {
+  max-width: 1100px;
+  margin: 0 auto 32px;
+  display: grid;
+  grid-template-columns: minmax(230px, 1fr) minmax(280px, 1.1fr) minmax(240px, 0.9fr);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  scroll-margin-top: 96px;
+}
+
+.service-details__intro,
+.service-details__scope {
+  padding: 24px 28px;
+}
+
+.service-details__intro {
+  border-right: 1px solid var(--border);
+}
+
+.service-details__heading {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.service-details__number {
+  color: var(--accent);
+  font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+  font-weight: 300;
+  line-height: 1;
+}
+
+.service-details__title {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.service-details__label {
+  margin: 0 0 12px;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.service-details__description p:last-child {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.service-details__scope {
+  border-right: 1px solid var(--border);
+}
+
+.service-details__scope-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 24px;
+}
+
+.service-details__scope-list li {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  padding: 10px 0;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.service-details__icon {
+  color: var(--accent);
+  display: grid;
+  place-items: center;
+}
+
+.service-details__icon svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.service-details__icon--text {
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* photo */
+
+.service-details__media {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  background-color: var(--surface);
+}
+
+.service-details__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* smaller devices */
+@media (max-width: 950px) {
+  .service-details {
+    grid-template-columns: minmax(220px, 0.9fr) minmax(0, 1.2fr);
+  }
+
+  .service-details__scope {
+    border-right: 0;
+  }
+
+  .service-details__media {
+    grid-column: 1 / -1;
+    height: 220px;
+    border-top: 1px solid var(--border);
+  }
+}
+
+/* phone */
+@media (max-width: 620px) {
+  .service-details {
+    margin-bottom: 24px;
+    grid-template-columns: 1fr;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+  }
+
+  .service-details__intro,
+  .service-details__scope {
+    padding: 22px 20px;
+  }
+
+  .service-details__intro {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .service-details__heading {
+    margin-bottom: 14px;
+  }
+
+  .service-details__media {
+    height: 200px;
+  }
+
+  .service-details__scope-list {
+    grid-template-columns: 1fr;
+  }
+}
