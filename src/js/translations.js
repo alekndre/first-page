@@ -242,6 +242,12 @@ const translations = {
     about_cta_title: "Masz projekt do zrealizowania?",
     about_cta_text: "Skontaktuj się z naszym zespołem, aby omówić zakres techniczny i wymagania planowanej realizacji.",
     about_cta_button: "Skontaktuj się",
+
+    contact_office_note: "Wyceny, współpraca, sprawy administracyjne.",
+    contact_service_note: "Wsparcie techniczne i bieżące prace serwisowe.",
+    contact_cta_title: "Masz projekt w planach?",
+    contact_cta_text: "Napisz do nas — odpowiemy w ciągu jednego dnia roboczego.",
+    contact_cta_button: "Wyślij wiadomość",
   },
   en: {
     nav_about: "About us",
@@ -485,5 +491,11 @@ const translations = {
     about_cta_title: "Do you have a project to complete?",
     about_cta_text: "Contact our team to discuss the technical scope and requirements of your project.",
     about_cta_button: "Contact us",
+
+    contact_office_note: "Quotes, cooperation, administrative matters.",
+    contact_service_note: "Technical support and ongoing service work.",
+    contact_cta_title: "Have a project in mind?",
+    contact_cta_text: "Write to us — we will get back to you within one business day.",
+    contact_cta_button: "Send an email",
   },
 };

@@ -59,7 +59,7 @@
 
 .about-intro__media {
   position: relative;
-  min-width: 0;
+  max-width: 420px;
 }
 
 .about-intro__media img {
@@ -125,7 +125,7 @@
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
   gap: clamp(40px, 8vw, 100px);
-  margin: 88px 0;
+  margin: 48px 0;
   padding: clamp(38px, 6vw, 64px);
   /* overflow: hidden; */
   background: var(--card);
