@@ -41,6 +41,7 @@ const translations = {
     contact_address: "Adres",
     contact_country: "Polska",
 
+    /* projects */
     project_timeline: "Historia projektów - od najnowszych do najstarszych",
     project_future: "Przyszłe projekty",
     project_earlier: "Przeszłe projekty",
@@ -130,6 +131,32 @@ const translations = {
     project_10_tag3: "CruiseShip",
     project_10_tag4: "Prefabrykacja",
 
+    /* services */
+    services_eyebrow: "Nasze usługi",
+    services_title: "Usługi",
+    services_intro: "Realizujemy przemysłowe instalacje rurowe, montaż urządzeń, prefabrykację stalową oraz modernizacje dla zakładów przemysłowych i jednostek pływających.",
+    services_navigation_label: "Usługi",
+
+    services_grid_1: "Rurociągi przemysłowe",
+    services_grid_2: "Media technologiczne",
+    services_grid_3: "Kotłownie przemysłowe",
+    services_grid_4: "Instalacje grzewcze",
+    services_grid_5: "Montaż urządzeń przemysłowych",
+    services_grid_6: "Relokacja urządzeń przemysłowych",
+    services_grid_7: "Spawanie i prefabrykacja",
+    services_grid_8: "Konstrukcje stalowe",
+    services_grid_9: "Wyposażenie i modernizacje statków",
+
+    service_scope_label: "Zakres prac",
+
+    service_1_title: "Rurociągi przemysłowe",
+    service_1_description: "Prefabrykujemy i montujemy przemysłowe instalacje rurowe przeznaczone do procesów technologicznych oraz przesyłu mediów.",
+
+    service_1_scope_1: "Instalacje pary i kondensatu",
+    service_1_scope_2: "Instalacje oleju termalnego",
+    service_1_scope_3: "Instalacje azotu",
+    service_1_scope_4: "Instalacje sprężonego powietrza",
+    service_1_scope_5: "Rurociągi technologiczne i pomocnicze",
   },
   en: {
     nav_about: "About us",
@@ -178,7 +205,7 @@ const translations = {
     read_more: "Read more",
     show_less: "Show less",
 
-
+    /* projects */
     project_01: "Geberit Mapress System Installation",
     project_01_date: "January 2024",
     project_01_short_desc: "Installation of a heating system using the Geberit Mapress piping system, including welding of process pipelines within an industrial facility.",
@@ -261,5 +288,32 @@ const translations = {
     project_10_tag2: "SPA",
     project_10_tag3: "CruiseShip",
     project_10_tag4: "Fabrication",
+
+    /* services */
+    services_eyebrow: "Our services",
+    services_title: "Services",
+    services_intro: "We deliver industrial piping systems, equipment installation, steel prefabrication and modernization projects for industrial facilities and marine vessels.",
+    services_navigation_label: "Services",
+
+    services_grid_1: "Industrial piping",
+    services_grid_2: "Process utility systems",
+    services_grid_3: "Industrial boiler rooms",
+    services_grid_4: "Heating systems",
+    services_grid_5: "Industrial equipment installation",
+    services_grid_6: "Industrial equipment relocation",
+    services_grid_7: "Welding and prefabrication",
+    services_grid_8: "Steel structures",
+    services_grid_9: "Ship outfitting and modernization",
+
+    service_scope_label: "Scope of work",
+
+    service_1_title: "Industrial piping",
+    service_1_description: "We fabricate and install industrial piping systems for technological processes and utility media.",
+
+    service_1_scope_1: "Steam and condensate piping",
+    service_1_scope_2: "Thermal oil systems",
+    service_1_scope_3: "Nitrogen installations",
+    service_1_scope_4: "Compressed air systems",
+    service_1_scope_5: "Process and utility piping",
   },
 };

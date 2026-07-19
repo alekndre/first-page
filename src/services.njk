@@ -4,14 +4,104 @@ title: Services — Montech Serwis
 permalink: /services.html
 pageStyles:
   - page
+  - services
 ---
-<section class="page-hero">
-  <span class="zone-ghost" aria-hidden="true">02</span>
-  <p class="zone-kicker" data-i18n="services_kicker">What we do</p>
-  <h1 data-i18n="nav_services">Services</h1>
-  <p class="page-lead" data-i18n="page_services_lead">The full scope of installation and maintenance work on marine vessels.</p>
+<section class="services-overview" aria-labelledby="services-title">
+
+  <header class="services-overview__header">
+
+    <p class="zone-kicker" data-i18n="services_eyebrow">Our services</p>
+    <h1 id="services-title" data-i18n="services_title">Services</h1>
+    <!-- <p class="services-overview__lead" data-i18n="services_intro">
+      We deliver industrial piping systems, equipment installation,
+      steel prefabrication and modernization projects for industrial
+      facilities and marine vessels. -->
+    </p>
+  </header>
+
+  <nav class="services-grid" aria-label="Services">
+
+    {% for service in services %}
+    <a class="service-tile" href="#{{ service.id }}">
+      <img class="service-tile__bg" src="{{ service.image }}" alt="" loading="lazy">
+      <span class="service-tile__number">{{ service.number }}</span>
+      <span class="service-tile__row">
+        <span class="service-tile__title" data-i18n="{{ service.titleKey }}">{{ service.title }}</span>
+        <span class="service-tile__arrow" aria-hidden="true">→</span>
+      </span>
+    </a>
+    {% endfor %}
+  </nav>
 </section>
 
-<main class="page-content">
-  <div class="placeholder" data-i18n="page_placeholder">Content coming soon.</div>
-</main>
+<section class="service-details" id="industrial-piping">
+
+  <div class="service-details__intro">
+
+    <div class="service-details__heading">
+      <span class="service-details__number">01</span>
+      <h2 class="service-details__title" data-i18n="service_1_title">Industrial piping</h2>
+    </div>
+
+    <div class="service-details__description">
+      <p class="service-details__label" data-i18n="service_description_label">About the service</p>
+      <p data-i18n="service_1_description">
+        We fabricate and install industrial piping systems for technological processes and utility media.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="service-details__scope">
+    <p class="service-details__label" data-i18n="service_scope_label">Scope of work</p>
+    <ul class="service-details__scope-list">
+      <li>
+        <span class="service-details__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 3c-1.4 1.8-1.4 3.2 0 5s1.4 3.2 0 5"/>
+            <path d="M13 3c-1.4 1.8-1.4 3.2 0 5s1.4 3.2 0 5"/>
+            <path d="M4 19h15"/>
+            <path d="M6 16h11"/>
+          </svg>
+        </span>
+        <span data-i18n="service_1_scope_1">Steam and condensate piping</span>
+      </li>
+      <li>
+        <span class="service-details__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3.5c3.4 4.1 5.8 7 5.8 9.7a5.8 5.8 0 1 1-11.6 0c0-2.7 2.4-5.6 5.8-9.7z"/>
+          </svg>
+        </span>
+        <span data-i18n="service_1_scope_2">Thermal oil systems</span>
+      </li>
+      <li>
+        <span class="service-details__icon service-details__icon--text" aria-hidden="true">N₂</span>
+        <span data-i18n="service_1_scope_3">Nitrogen installations</span>
+      </li>
+      <li>
+        <span class="service-details__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 8h10a2.5 2.5 0 1 0-2.5-2.5"/>
+            <path d="M3 12h14a2.5 2.5 0 1 1-2.5 2.5"/>
+            <path d="M3 16h6a2 2 0 1 1-2 2"/>
+          </svg>
+        </span>
+        <span data-i18n="service_1_scope_4">Compressed air systems</span>
+      </li>
+      <li>
+        <span class="service-details__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 8h8a5 5 0 0 1 5 5v8"/>
+            <path d="M3 12h6a1 1 0 0 1 1 1v8"/>
+          </svg>
+        </span>
+        <span data-i18n="service_1_scope_5">Process and utility piping</span>
+      </li>
+    </ul>
+  </div>
+
+  <figure class="service-details__media">
+    <img src="/img/pipelines2022/p5.webp" alt="Industrial piping installation" loading="lazy">
+  </figure>
+
+</section>
