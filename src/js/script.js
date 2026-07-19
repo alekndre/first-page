@@ -66,7 +66,12 @@ syncThemeAssets();
 window.addEventListener('load', function () {
   syncThemeAssets();
 
-  const track = document.querySelector('.logo-marquee__track');
+  // przy reduced-motion CSS wyłącza animację i zawija loga —
+  // klony zamieniłyby się w kilka statycznych rzędów, więc nie klonujemy
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const track = document.querySelector('.logo-marquee__track')
+  if (!track) return;
   const originals = [...track.children];
   const setWidth = track.scrollWidth; // szerokość jednego kompletu z gapami
   if (setWidth === 0) return;
