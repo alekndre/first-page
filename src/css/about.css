@@ -442,7 +442,8 @@
   }
 
   .about-cta__link {
-    width: 100%;
+    width: auto;
+    align-self: flex-start;
   }
 }
 

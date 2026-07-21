@@ -130,7 +130,7 @@
 
 @media (max-width: 760px) {
   .contact-page {
-    padding: 0 20px var(--space-6);
+    padding: var(--space-5) 20px var(--space-6);
   }
 
   .contact-cards {
@@ -145,6 +145,7 @@
   }
 
   .btn-accent {
-    width: 100%;
+    width: auto;
+    align-self: flex-start;
   }
 }

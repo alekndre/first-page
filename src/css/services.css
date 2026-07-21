@@ -331,9 +331,9 @@ img.img-flip {
   .service-details {
     margin-bottom: 24px;
     grid-template-columns: 1fr;
-    border-radius: 0;
-    border-left: 0;
-    border-right: 0;
+    border-radius: 8px;
+    border-left: 1px solid var(--border);
+    border-right: 1px solid var(--border);
   }
 
   .services-layout > .service-details:last-child {
