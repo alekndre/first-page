@@ -38,26 +38,37 @@
 .zones {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 24px 24px 0;
+  padding: var(--space-services-intro) 24px 0;
 }
 
 .zone {
   position: relative;
-  min-height: 50vh; /* wysokosc stref */
+  min-height: 0;
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding: 28px 0;
-  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--space-4);
+  padding: 30px 40px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+}
+
+#zone-about {
+  padding-block: 20px;
+}
+
+#zone-projects {
+  margin-bottom: var(--space-6);
 }
 
 .zone-ghost {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);   /* środek strefy, uniesiony ku linii nagłówka */
-  right: 0;
+  top: var(--space-3);
+  right: var(--space-3);
   font-family: 'Stardos Stencil', serif;
-  font-size: clamp(120px, 18vw, 220px);
+  font-size: clamp(76px, 9vw, 116px);
   line-height: 1;
   color: var(--text);
   opacity: 0.05;
@@ -67,7 +78,7 @@
 
 .zone-alt .zone-ghost {
   right: auto;
-  left: 0;
+  left: var(--space-3);
 }
 
 .zone-grid {
@@ -100,7 +111,7 @@
 }
 
 .zone-cta {
-  color: var(--text);
+  color: var(--accent);
   text-decoration: none;
   font-size: 16px;
 }
@@ -166,7 +177,7 @@
   width: 60%;
   height: 82%;             /* było 90% — rogi po rotacji mieszczą się w kontenerze */
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid var(--border);
   transition: transform 0.45s cubic-bezier(0.22, 0.9, 0.3, 1);
 }
@@ -203,7 +214,7 @@
 .svc-preview {
   position: relative;
   height: 340px;
-  border-radius: 12px;
+  border-radius: 8px;
   overflow: hidden;
 }
 
@@ -223,7 +234,7 @@
 .slider {
   position: relative;
   height: 340px;
-  border-radius: 12px;
+  border-radius: 8px;
   overflow: hidden;
 }
 
@@ -282,7 +293,8 @@
   padding: 28px 32px;
   background-color: var(--card);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
 }
 
 .cta-text {
@@ -296,7 +308,7 @@
   background-color: var(--text);
   text-decoration: none;
   padding: 10px 22px;
-  border-radius: 10px;
+  border-radius: 8px;
   font-weight: 500;
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
@@ -308,7 +320,9 @@
 
 /* -- mobile -- */
 @media (max-width: 760px) {
-  .zone { min-height: 0; }
+  .zones { padding-top: var(--space-services-intro); }
+  .zone { padding: 24px; }
+  #zone-about { padding-block: 20px; }
   .zone-grid { grid-template-columns: 1fr; gap: 24px; }
   .zone-alt .zone-panel { order: -1; }   /* było: .zone-alt .zone-text { order: -1; } */
   .deck, .svc-preview, .slider { height: 260px; }
@@ -341,8 +355,10 @@
 .stat {
   position: relative;
   padding: 20px 12px;
-  border-radius: 12px;
-  border: 1px solid transparent;
+  background-color: var(--card);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
   transform-style: preserve-3d;
   transition: transform 0.15s ease-out,
               background-color 0.3s ease,

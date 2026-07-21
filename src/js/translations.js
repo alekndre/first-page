@@ -224,6 +224,9 @@ const translations = {
 
     about_company_label: "Montech Serwis",
     about_company_title: "Doświadczenie budowane podczas realnych projektów",
+    about_intro_experience: "Doświadczenie",
+    about_intro_projects: "Realizacje",
+    about_intro_approach: "Podejście",
 
     about_company_paragraph_1: "Montech Serwis został założony w Gdańsku w 2001 roku. Firma powstała w oparciu o szerokie doświadczenie w zakresie budowy i napraw statków oraz wiedzę zdobytą w sektorze naftowo-gazowym.",
     about_company_paragraph_2: "Na przestrzeni lat realizowaliśmy projekty dla przemysłu oraz sektora morskiego, współpracując z uznanymi firmami i wykonując zarówno nowe instalacje, jak i prace modernizacyjne oraz serwisowe.",
@@ -473,6 +476,9 @@ const translations = {
     about_since: "Since",
     about_company_label: "Montech Serwis",
     about_company_title: "Experience built through real projects",
+    about_intro_experience: "Experience",
+    about_intro_projects: "Projects",
+    about_intro_approach: "Approach",
 
     about_company_paragraph_1: "Montech Serwis was established in Gdańsk in 2001. The company was founded on extensive experience in shipbuilding and ship repair, as well as knowledge gained in the oil and gas sector.",
     about_company_paragraph_2: "Over the years, we have completed projects for the industrial and marine sectors, working with recognised companies and delivering both new installations and modernisation and maintenance works.",
