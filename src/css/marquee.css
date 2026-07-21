@@ -4,9 +4,12 @@
 .logo-marquee {
   overflow: hidden;
   padding: 10px 0;
-  background-color: var(--nav-bg);
-  backdrop-filter: blur(14px) saturate(1.2);
-  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  background-color: var(--card);
+  box-shadow: var(--card-shadow-up);
+  /* border-top: 1px solid var(--border);  */
+  /* border-bottom: 1px solid var(--border); */
+  /* backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2); */
 }
 
 .logo-marquee__track {
@@ -61,8 +64,14 @@
 
 /* ==== Stopka ==== */
 .footer {
-  border-top: 1px solid var(--border);
+  /* border-top: 1px solid var(--border); */
   margin-top: 0;
+  background-color: var(--card);
+  box-shadow: var(--card-shadow-up);
+}
+
+.logo-marquee + .footer {
+  box-shadow: none;
 }
 
 .footer-grid {
@@ -129,6 +138,7 @@
   border-top: 1px solid var(--border);
   font-size: 13px;
   color: var(--text-muted);
+  background-color: var(--card);
 }
 
 .contact-split {

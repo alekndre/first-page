@@ -5,7 +5,7 @@
 .about-page {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 24px 96px;
+  padding: 0 24px var(--space-6);
 }
 
 
@@ -37,35 +37,39 @@
    ========================================================== */
 
 .about-intro-section {
-  padding: 48px 0 88px;
+  padding: var(--space-5) 0 var(--space-3);
   border-bottom: 1px solid var(--border);
 }
 
 .about-intro__header {
-  margin-bottom: 48px;
+  margin-bottom: var(--space-4);
 }
 
 .about-intro__header h2 {
   width: 100%;
   max-width: none;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
 }
 
 .about-intro {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  gap: clamp(40px, 7vw, 88px);
-  align-items: start;
+  gap: clamp(var(--space-4), 6vw, var(--space-6));
+  align-items: stretch;
+  padding: 0;
 }
 
 .about-intro__media {
   position: relative;
-  max-width: 420px;
+  max-width: 480px;
+  align-self: stretch;
+  justify-self: end;
 }
 
 .about-intro__media img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: 100%;
   object-fit: cover;
   object-position: center;
   border-radius: 8px;
@@ -74,13 +78,14 @@
 .about-intro__badge {
   position: absolute;
   top: 24px;
-  left: 24px;
+  left: -16px;
   display: flex;
   flex-direction: column;
   min-width: 145px;
   padding: 18px 22px;
   background: var(--accent);
   color: #14120f;
+  border-radius: 8px;
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.24);
 }
 
@@ -105,14 +110,32 @@
 
 .about-intro__text {
   display: grid;
-  gap: 18px;
+  gap: var(--space-3);
 }
 
-.about-intro__text p {
+.about-intro__block {
+  padding-left: var(--space-2);
+  border-left: 2px solid var(--accent);
+}
+
+.about-intro__block-label {
+  margin: 0 0 6px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.about-intro__block > p:not(.about-intro__block-label) {
   margin: 0;
   color: var(--text-muted);
   font-size: 16px;
   line-height: 1.75;
+}
+
+.about-intro__block > p + p:not(.about-intro__block-label) {
+  margin-top: var(--space-2);
 }
 
 
@@ -124,13 +147,14 @@
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  gap: clamp(40px, 8vw, 100px);
+  gap: clamp(var(--space-4), 6vw, var(--space-6));
   margin: 48px 0;
   padding: clamp(38px, 6vw, 64px);
   /* overflow: hidden; */
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 8px;
+  box-shadow: var(--card-shadow);
 }
 
 /* .about-approach__number {
@@ -176,8 +200,7 @@
    ========================================================== */
 
 .about-partners {
-  padding: 0 0 88px;
-  border-bottom: 1px solid var(--border);
+  padding: 0 0 var(--space-6);
 }
 
 .about-partners__heading {
@@ -185,7 +208,7 @@
   grid-template-columns: minmax(0, 1fr) minmax(280px, 0.75fr);
   gap: 48px;
   align-items: end;
-  margin-bottom: 34px;
+  margin-bottom: var(--space-4);
 }
 
 .about-partners__description {
@@ -197,20 +220,20 @@
 .about-partners__grid {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
-  border-radius: 8px;
-  overflow: hidden;
+  gap: 10px;
 }
 
 .about-partner {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 78px;
-  padding: 16px 14px;
+  min-height: 58px;
+  padding: 10px 12px;
   overflow: hidden;
   background: var(--card);
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
 }
 
 .about-partner img {
@@ -253,6 +276,7 @@
   border-radius: 8px;
   background: var(--card);
   padding: 40px;
+  box-shadow: var(--card-shadow);
 }
 
 .about-cta__content {
@@ -335,7 +359,7 @@
 
 @media (max-width: 760px) {
   .about-page {
-    padding: 0 20px 72px;
+    padding: 0 20px var(--space-6);
   }
 
   .about-intro-section {
@@ -349,15 +373,21 @@
   .about-intro {
     grid-template-columns: 1fr;
     gap: 42px;
+    padding: 0;
   }
 
   .about-intro__media {
     max-width: 560px;
   }
 
+  .about-intro__media img {
+    height: auto;
+    aspect-ratio: 4 / 5;
+  }
+
   .about-intro__badge {
     top: 16px;
-    left: 16px;
+    left: -10px;
     min-width: 125px;
     padding: 15px 18px;
   }
@@ -396,8 +426,8 @@
   }
 
   .about-partner {
-    min-height: 84px;
-    padding: 16px;
+    min-height: 62px;
+    padding: 10px 12px;
   }
 
   .about-partner img {
@@ -412,7 +442,8 @@
   }
 
   .about-cta__link {
-    width: 100%;
+    width: auto;
+    align-self: flex-start;
   }
 }
 
@@ -427,6 +458,6 @@
   }
 
   .about-partner {
-    min-height: 78px;
+    min-height: 62px;
   }
 }

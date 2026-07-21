@@ -42,6 +42,9 @@
       </a>
 
       <nav class="nav-links">
+        {% if not isHome %}
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        {% endif %}
         <a href="about-us.html" data-i18n="nav_about">About us</a>
         <a href="services.html" data-i18n="nav_services">Services</a>
         <a href="projects.html" data-i18n="nav_projects">Projects</a>

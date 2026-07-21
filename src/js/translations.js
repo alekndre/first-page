@@ -224,11 +224,23 @@ const translations = {
 
     about_company_label: "Montech Serwis",
     about_company_title: "Doświadczenie budowane podczas realnych projektów",
+    about_intro_experience: "Doświadczenie",
+    about_intro_projects: "Realizacje",
+    about_intro_approach: "Podejście",
 
     about_company_paragraph_1: "Montech Serwis został założony w Gdańsku w 2001 roku. Firma powstała w oparciu o szerokie doświadczenie w zakresie budowy i napraw statków oraz wiedzę zdobytą w sektorze naftowo-gazowym.",
     about_company_paragraph_2: "Na przestrzeni lat realizowaliśmy projekty dla przemysłu oraz sektora morskiego, współpracując z uznanymi firmami i wykonując zarówno nowe instalacje, jak i prace modernizacyjne oraz serwisowe.",
     about_company_paragraph_3: "Własne zaplecze warsztatowe oraz wykwalifikowany zespół pozwalają nam prowadzić realizacje od przygotowania i prefabrykacji aż po montaż w zakładzie klienta lub na pokładzie jednostki.",
     about_company_paragraph_4: "Zakres i organizację prac dostosowujemy do wymagań technicznych oraz warunków konkretnego projektu. Stawiamy na rzetelne wykonanie, sprawną współpracę i dobór rozwiązań odpowiadających potrzebom klienta.",
+
+    gallery_team_label: "Nasz zespół w działaniu",
+    gallery_team_title: "Ludzie stojący za realizacjami",
+    gallery_projects_label: "Wybrane realizacje",
+    gallery_projects_title: "Projekty w obiektywie",
+    gallery_industry_label: "Przemysł",
+    gallery_industry_title: "Instalacje przemysłowe i prefabrykacja",
+    gallery_marine_label: "Sektor morski",
+    gallery_marine_title: "Prace na pokładach i w stoczniach",
 
     about_approach_label: "Nasze podejście",
     about_approach_title: "Współpraca oparta na doświadczeniu i odpowiedzialności",
@@ -473,11 +485,23 @@ const translations = {
     about_since: "Since",
     about_company_label: "Montech Serwis",
     about_company_title: "Experience built through real projects",
+    about_intro_experience: "Experience",
+    about_intro_projects: "Projects",
+    about_intro_approach: "Approach",
 
     about_company_paragraph_1: "Montech Serwis was established in Gdańsk in 2001. The company was founded on extensive experience in shipbuilding and ship repair, as well as knowledge gained in the oil and gas sector.",
     about_company_paragraph_2: "Over the years, we have completed projects for the industrial and marine sectors, working with recognised companies and delivering both new installations and modernisation and maintenance works.",
     about_company_paragraph_3: "Our workshop facilities and qualified team allow us to carry out projects from preparation and prefabrication through to installation at the customer's facility or on board a vessel.",
     about_company_paragraph_4: "We adapt the scope and organisation of our work to the technical requirements and conditions of each project. Our priority is reliable execution, effective cooperation and selecting solutions suited to the customer's needs.",
+
+    gallery_team_label: "Our team in action",
+    gallery_team_title: "People behind the projects",
+    gallery_projects_label: "Selected work",
+    gallery_projects_title: "Projects in focus",
+    gallery_industry_label: "Industry",
+    gallery_industry_title: "Industrial installations and prefabrication",
+    gallery_marine_label: "Marine sector",
+    gallery_marine_title: "Work on board and in shipyards",
 
     about_approach_label: "Our approach",
     about_approach_title: "Cooperation based on experience and responsibility",

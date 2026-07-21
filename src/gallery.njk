@@ -4,14 +4,54 @@ title: Gallery — Montech Serwis
 permalink: /gallery.html
 pageStyles:
   - page
+  - gallery
 ---
 <section class="page-hero">
   <span class="zone-ghost" aria-hidden="true">05</span>
   <p class="zone-kicker" data-i18n="page_gallery_kicker">Up close</p>
   <h1 data-i18n="nav_gallery">Gallery</h1>
-  <p class="page-lead" data-i18n="page_gallery_lead">Photos from projects in shipyards across Europe.</p>
+  <!-- <p class="page-lead" data-i18n="page_gallery_lead">Photos from projects in shipyards across Europe.</p> -->
 </section>
 
-<main class="page-content">
-  <div class="placeholder" data-i18n="page_placeholder">Content coming soon.</div>
+<main class="gallery-page">
+  <section class="gallery-section" aria-labelledby="gallery-team-title">
+    <div class="gallery-section__heading">
+      <p class="about-section-label" data-i18n="gallery_team_label">Our team in action</p>
+      <h2 id="gallery-team-title" data-i18n="gallery_team_title">People behind the projects</h2>
+    </div>
+    <div class="gallery-mosaic">
+      <figure class="gallery-mosaic__item gallery-mosaic__item--primary" data-gallery-item data-gallery-group="team"><img src="img/azot202309/a1.webp" alt="Montech Serwis team working on an industrial installation" loading="lazy"></figure>
+      <figure class="gallery-mosaic__item" data-gallery-item data-gallery-group="team"><img src="img/ostroda202302/o7.webp" alt="Technician working on pipe installation" loading="lazy"></figure>
+      <figure class="gallery-mosaic__item" data-gallery-item data-gallery-group="team"><img src="img/ostroda202302/o21.webp" alt="Installation work in progress" loading="lazy"></figure>
+      <figure class="gallery-mosaic__item" data-gallery-item data-gallery-group="team"><img src="img/piec202301/p8.webp" alt="Team working on an industrial project" loading="lazy"></figure>
+      <figure class="gallery-mosaic__item" data-gallery-item data-gallery-group="team"><img src="img/sweden202205/s14.webp" alt="Industrial installation work" loading="lazy"></figure>
+      <figure class="gallery-mosaic__item" data-gallery-item data-gallery-group="team"><img src="img/piec202301/p6.webp" alt="Technician at work" loading="lazy"></figure>
+      <figure class="gallery-mosaic__item" data-gallery-item data-gallery-group="team"><img src="img/marella202201/2m5.webp" alt="Process piping installation work" loading="lazy"></figure>
+      <figure class="gallery-mosaic__item" data-gallery-item data-gallery-group="team"><img src="img/mapress/m5.webp" alt="Industrial installation team" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <section class="gallery-section" aria-labelledby="gallery-projects-title">
+    <div class="gallery-section__heading">
+      <p class="about-section-label" data-i18n="gallery_projects_label">Selected work</p>
+      <h2 id="gallery-projects-title" data-i18n="gallery_projects_title">Projects in focus</h2>
+    </div>
+    <div class="gallery-mosaic">
+      <figure class="gallery-mosaic__item gallery-mosaic__item--primary" data-gallery-item data-gallery-group="projects"><img src="img/sweden202205/s15.webp" alt="Industrial process piping" loading="lazy"></figure>
+      <figure class="gallery-mosaic__item" data-gallery-item data-gallery-group="projects"><img src="img/ostroda202302/o1.webp" alt="Metallurgical furnace installation" loading="lazy"></figure>
+      <figure class="gallery-mosaic__item" data-gallery-item data-gallery-group="projects"><img src="img/piec202301/p2.webp" alt="Industrial boiler room equipment" loading="lazy"></figure>
+      <figure class="gallery-mosaic__item" data-gallery-item data-gallery-group="projects"><img src="img/azot202309/a11.webp" alt="Cruise ship outfitting work" loading="lazy"></figure>
+      <figure class="gallery-mosaic__item" data-gallery-item data-gallery-group="projects"><img src="img/ostroda202307/o6.webp" alt="" loading="lazy"></figure>
+      <figure class="gallery-mosaic__item" data-gallery-item data-gallery-group="projects"><img src="img/ostroda202302/o18.webp" alt="Ship in a shipyard" loading="lazy"></figure>
+      <figure class="gallery-mosaic__item" data-gallery-item data-gallery-group="projects"><img src="img/mapress/m10.webp" alt="Industrial equipment work" loading="lazy"></figure>
+      <figure class="gallery-mosaic__item" data-gallery-item data-gallery-group="projects"><img src="img/marella2020/m2.webp" alt="Industrial installation project" loading="lazy"></figure>
+    </div>
+  </section>
 </main>
+
+<div class="gallery-lightbox" id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Image preview" hidden>
+  <button class="gallery-lightbox__close" type="button" aria-label="Close preview">×</button>
+  <button class="gallery-lightbox__nav gallery-lightbox__nav--previous" type="button" aria-label="Previous image">←</button>
+  <img class="gallery-lightbox__image" src="" alt="">
+  <button class="gallery-lightbox__nav gallery-lightbox__nav--next" type="button" aria-label="Next image">→</button>
+</div>

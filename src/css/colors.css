@@ -1,9 +1,19 @@
 /* ==== 1. Zmienne: cała paleta w jednym miejscu ==== */
 /* motyw ciemny = domyślny */
 :root {
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 64px;
+  --space-services-intro: 36px;
+
   --bg: #14120f;
   --card: #1e1b17;
   --card-hover: #232019;
+  --card-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  --card-shadow-up: 0 -12px 28px rgba(0, 0, 0, 0.18);
   --text: #e9e5dd;
   --text-muted: #9b958a;
   --border: rgb(46, 39, 39);
@@ -29,6 +39,8 @@
   --bg: #f3f1ec;
   --card: #fbfaf8;
   --card-hover: #eeebe4;
+  --card-shadow: 0 12px 28px rgba(70, 60, 45, 0.10);
+  --card-shadow-up: 0 -12px 28px rgba(70, 60, 45, 0.10);
   --text: #2d2a26;
   --text-muted: #8a857d;
   --border: #e2dfd7;

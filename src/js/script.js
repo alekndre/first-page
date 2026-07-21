@@ -342,3 +342,61 @@ projectDescriptionButtons.forEach((button) => {
     button.textContent = translations[lang][key];
   });
 });
+
+/* ==== Gallery lightbox ==== */
+const galleryLightbox = document.querySelector(".gallery-lightbox");
+const galleryItems = [...document.querySelectorAll("[data-gallery-item]")];
+
+if (galleryLightbox && galleryItems.length) {
+  const lightboxImage = galleryLightbox.querySelector(".gallery-lightbox__image");
+  const closeLightbox = galleryLightbox.querySelector(".gallery-lightbox__close");
+  const previousImage = galleryLightbox.querySelector(".gallery-lightbox__nav--previous");
+  const nextImage = galleryLightbox.querySelector(".gallery-lightbox__nav--next");
+  let activeGalleryItems = [];
+  let activeGalleryIndex = 0;
+
+  const showGalleryImage = (index) => {
+    activeGalleryIndex = (index + activeGalleryItems.length) % activeGalleryItems.length;
+    const image = activeGalleryItems[activeGalleryIndex].querySelector("img");
+    lightboxImage.src = image.currentSrc || image.src;
+    lightboxImage.alt = image.alt;
+  };
+
+  const openLightbox = (item) => {
+    activeGalleryItems = galleryItems.filter((galleryItem) => galleryItem.dataset.galleryGroup === item.dataset.galleryGroup);
+    showGalleryImage(activeGalleryItems.indexOf(item));
+    galleryLightbox.hidden = false;
+    closeLightbox.focus();
+  };
+
+  const closeGalleryLightbox = () => {
+    galleryLightbox.hidden = true;
+    lightboxImage.src = "";
+  };
+
+  galleryItems.forEach((item) => {
+    item.tabIndex = 0;
+    item.setAttribute("role", "button");
+    item.addEventListener("click", () => openLightbox(item));
+    item.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openLightbox(item);
+      }
+    });
+  });
+
+  previousImage.addEventListener("click", () => showGalleryImage(activeGalleryIndex - 1));
+  nextImage.addEventListener("click", () => showGalleryImage(activeGalleryIndex + 1));
+  closeLightbox.addEventListener("click", closeGalleryLightbox);
+  lightboxImage.addEventListener("click", closeGalleryLightbox);
+  galleryLightbox.addEventListener("click", (event) => {
+    if (event.target === galleryLightbox) closeGalleryLightbox();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (galleryLightbox.hidden) return;
+    if (event.key === "Escape") closeGalleryLightbox();
+    if (event.key === "ArrowLeft") showGalleryImage(activeGalleryIndex - 1);
+    if (event.key === "ArrowRight") showGalleryImage(activeGalleryIndex + 1);
+  });
+}
