@@ -30,6 +30,12 @@ function checkNavbar() {
 }
 
 if (hamburger && menu) {
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+  menu.querySelectorAll('a').forEach((link) => {
+    link.classList.toggle('nav-current', link.getAttribute('href') === currentPage);
+  });
+
   hamburger.addEventListener('click', () => {
     menu.classList.toggle('open');
     scrollOpen = window.scrollY;
