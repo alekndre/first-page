@@ -150,6 +150,11 @@
   border-radius: 8px;
 }
 
+/* W menu hamburgerowym nie pokazujemy strony, którą użytkownik już ogląda. */
+.nav-links.open a.nav-current {
+  display: none;
+}
+
 .nav-links.open a:hover,
 .nav-links.open a:focus-visible {
   color: var(--accent);
